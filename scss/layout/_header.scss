@@ -1,0 +1,263 @@
+// ─── Header ───────────────────────────────────────────────────────────────────
+.header {
+  position: relative;
+  z-index: 1000;
+  padding: 18px 0;
+  background-color: var(--color-bg);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+// ─── Logo ─────────────────────────────────────────────────────────────────────
+.header__logo {
+  flex-shrink: 0;
+  display: block;
+
+  img {
+    height: 96px;
+    width: auto;
+    display: block;
+  }
+}
+
+// Right column holds the two stacked bars (contact + nav)
+.header__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// ─── Top contact bar ──────────────────────────────────────────────────────────
+.header__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  @include transEase(color, ease);
+
+  &__icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #404040;
+
+    img {
+      width: 14px;
+      height: 14px;
+      display: block;
+    }
+  }
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+// ─── Main nav bar ─────────────────────────────────────────────────────────────
+.header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.header__utils {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+// ─── Social ───────────────────────────────────────────────────────────────────
+.header__social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #333;
+    color: var(--white);
+    font-size: 13px;
+    @include transEase(background-color, ease);
+
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }
+}
+
+// ─── Search ───────────────────────────────────────────────────────────────────
+.header__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background-color: var(--white);
+  @include transEase(border-color, ease);
+
+  &:focus-within {
+    border-color: var(--color-primary);
+  }
+
+  &-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--color-text-muted);
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  &-input {
+    flex: 1;
+    min-width: 0;
+    width: 180px;
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: var(--fs-sm);
+
+    &::placeholder {
+      color: var(--color-text-muted);
+    }
+
+    // Hide the native search clear (X) control
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+  }
+}
+
+// ─── Hamburger button (mobile only) ─────────────────────────────────────────────
+.btn-hamburger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  background: var(--white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  @include transEase(border-color, ease);
+
+  span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-text);
+    border-radius: 2px;
+    transform-origin: center;
+    transition:
+      transform 0.38s cubic-bezier(0.77, 0, 0.175, 1),
+      opacity 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  &.is-active {
+    border-color: var(--color-primary);
+
+    span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+// Tablet / small desktop — tighten spacing before collapsing
+@media (max-width: 1200px) {
+  .header__topbar {
+    gap: 24px;
+  }
+
+  .header__bar {
+    gap: 16px;
+  }
+
+  .header__utils {
+    gap: 14px;
+  }
+
+  .header__search-input {
+    width: 120px;
+  }
+}
+
+// Collapse to hamburger
+@media (max-width: 991px) {
+  .header {
+    padding: 14px 0;
+  }
+
+  .header__main {
+    display: none;
+  }
+
+  .header__logo img {
+    height: 72px;
+  }
+
+  .btn-hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 575px) {
+  .header__logo img {
+    height: 60px;
+  }
+
+  .btn-hamburger {
+    width: 40px;
+    height: 40px;
+  }
+}

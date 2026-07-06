@@ -1,0 +1,236 @@
+// ─── Footer ───────────────────────────────────────────────────────────────────
+.site-footer {
+  color: var(--white);
+}
+
+// ─── Top (red) band ─────────────────────────────────────────────────────────────
+.site-footer__top {
+  background-color: var(--color-red);
+  padding: 40px 0 56px;
+}
+
+.site-footer__inner {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.site-footer__title {
+  margin: 0 0 40px;
+  text-align: center;
+  color: var(--white);
+  font-family: var(--heading-font);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-5xl); // 40px
+  line-height: 1.1;
+}
+
+// ─── Columns layout ─────────────────────────────────────────────────────────────
+.site-footer__grid {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 32px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+// Divider between the main sections
+.site-footer__grid > * + * {
+  padding-left: 32px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+// ─── Quick links ────────────────────────────────────────────────────────────────
+.site-footer__links {
+  display: flex;
+  gap: 32px;
+}
+
+.site-footer__column {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  & + & {
+    padding-left: 32px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  li + li {
+    margin-top: 14px;
+  }
+
+  a {
+    color: var(--white);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-normal);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    @include transEase(opacity);
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.75;
+    }
+  }
+}
+
+// ─── Contact ────────────────────────────────────────────────────────────────────
+.site-footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  a,
+  span {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-normal);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  a {
+    @include transEase(opacity);
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.75;
+    }
+  }
+
+  i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: var(--white);
+    color: var(--color-red);
+    font-size: 11px;
+  }
+}
+
+// ─── Tools (social + search) ────────────────────────────────────────────────────
+.site-footer__tools {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.site-footer__social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 12px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: var(--white);
+    color: var(--color-red);
+    font-size: 13px;
+    @include transEase(opacity);
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.75;
+    }
+  }
+}
+
+.site-footer__search {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  i {
+    position: absolute;
+    left: 14px;
+    color: var(--white);
+    font-size: 14px;
+    pointer-events: none;
+  }
+
+  input {
+    width: 100%;
+    min-width: 200px;
+    padding: 9px 16px 9px 38px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--white);
+    font-family: inherit;
+    font-size: var(--fs-base);
+    line-height: 1.2;
+
+    &::placeholder {
+      color: var(--white);
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--white);
+    }
+  }
+}
+
+// ─── Bottom (green) band ────────────────────────────────────────────────────────
+.site-footer__bottom {
+  background-color: var(--color-green);
+  padding: 20px 24px;
+  text-align: center;
+  color: var(--white);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
+}
+
+// ─── Responsive ─────────────────────────────────────────────────────────────────
+@media (max-width: 1200px) {
+  .site-footer__grid {
+    flex-wrap: wrap;
+    gap: 40px 40px;
+  }
+
+  .site-footer__grid > * + * {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-footer__grid {
+    justify-content: stretch;
+  }
+  .site-footer__top {
+    padding: 32px 0 40px;
+  }
+
+  .site-footer__title {
+    margin-bottom: 28px;
+    font-size: var(--fs-3xl);
+  }
+
+  .site-footer__links {
+    flex-wrap: wrap;
+    gap: 28px;
+  }
+
+  .site-footer__column + .site-footer__column {
+    padding-left: 0;
+    border-left: 0;
+  }
+}

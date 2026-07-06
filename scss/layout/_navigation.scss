@@ -1,0 +1,217 @@
+// ─── Main navigation ──────────────────────────────────────────────────────────
+.nav-main {
+  min-width: 0;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    // Thin red divider between items
+    & + &::before {
+      content: "";
+      align-self: center;
+      width: 1px;
+      height: 14px;
+      background-color: var(--color-red);
+    }
+
+    &.active > .nav-main__link {
+      color: var(--color-red);
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 6px 22px;
+    color: var(--color-text);
+    font-weight: var(--fw-medium);
+    white-space: nowrap;
+    @include transEase(color, ease);
+
+    &:hover {
+      color: var(--color-red);
+    }
+  }
+}
+
+// ─── Mobile backdrop ──────────────────────────────────────────────────────────
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1050;
+  opacity: 0;
+  pointer-events: none;
+  @include transEase(opacity, ease);
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+// ─── Mobile drawer ────────────────────────────────────────────────────────────
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 85%;
+  background-color: var(--color-bg);
+  border-left: 1px solid var(--color-border);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.12);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.44s cubic-bezier(0.77, 0, 0.175, 1);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  // ── Head ────────────────────────────────────────────────────────────────
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  &__logo {
+    display: block;
+
+    img {
+      height: 60px;
+      width: auto;
+      display: block;
+    }
+  }
+
+  &__close {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 15px;
+    @include transEase(all, ease);
+
+    &:hover {
+      border-color: var(--color-red);
+      color: var(--color-red);
+    }
+  }
+
+  // ── Nav list ────────────────────────────────────────────────────────────
+  &__list {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 16px 0;
+    flex: 1;
+  }
+
+  &__item {
+    opacity: 0;
+    transform: translateX(20px);
+    // Fast collapse when closing
+    transition:
+      opacity 0.15s ease,
+      transform 0.15s ease;
+
+    &.active > .mobile-drawer__link {
+      color: var(--color-red);
+
+      &::before {
+        transform: translateY(-50%) scaleY(1);
+      }
+    }
+  }
+
+  // Stagger each item in when the drawer opens
+  &.is-open .mobile-drawer__item {
+    opacity: 1;
+    transform: translateX(0);
+
+    @for $i from 1 through 7 {
+      &:nth-child(#{$i}) {
+        transition:
+          opacity 0.35s ease #{0.18 + $i * 0.055}s,
+          transform 0.38s cubic-bezier(0.22, 1, 0.36, 1) #{0.18 + $i * 0.055}s;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--color-text);
+    font-size: var(--fs-md);
+    font-weight: var(--fw-medium);
+    padding: 12px 24px;
+    @include transEase(color, ease);
+
+    // Left accent bar
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) scaleY(0);
+      width: 3px;
+      height: 55%;
+      border-radius: 0 3px 3px 0;
+      background-color: var(--color-red);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    &:hover {
+      color: var(--color-red);
+
+      &::before {
+        transform: translateY(-50%) scaleY(1);
+      }
+    }
+  }
+
+  // ── Footer (contact + social) ─────────────────────────────────────────────
+  &__foot {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 24px;
+    border-top: 1px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
