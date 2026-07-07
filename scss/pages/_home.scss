@@ -6,16 +6,9 @@
   isolation: isolate; // contain the panel's multiply blend
   display: flex;
   align-items: center;
-  min-height: 420px;
-  height: clamp(420px, 42vw, 672px);
+  min-height: 376px;
+  height: clamp(376px, 42vw, 550px);
   overflow: hidden;
-
-  // Overlay geometry (mirrors .success)
-  --panel-x: clamp(0px, 7.5vw, 130px);
-  --panel-w: clamp(380px, 40vw, 680px);
-  --panel-pad-x: clamp(28px, 2.917vw, 56px);
-  --container-edge: max(0px, calc((100vw - 1600px) / 2));
-  --container-pad-x: calc(var(--bs-gutter-x, 1.5rem) * 0.5);
 
   // Full-bleed grayscale background
   &__bg {
@@ -29,6 +22,26 @@
       object-fit: cover;
       object-position: center;
       filter: grayscale(100%); // black & white hero photo
+    }
+
+    // Full-colour copy on top, visible only through a soft-edged spotlight
+    // that follows the cursor (--spot-* vars driven from main.js)
+    img.hero__bg-color {
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: none;
+      pointer-events: none;
+      -webkit-mask-image: radial-gradient(
+        circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%),
+        #000 55%,
+        transparent 100%
+      );
+      mask-image: radial-gradient(
+        circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%),
+        #000 55%,
+        transparent 100%
+      );
     }
   }
 
@@ -64,6 +77,20 @@
     position: static;
   }
 
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 680px;
+    padding: 6rem 4rem;
+    // Align the content column with a centered 1600px container's left edge.
+    // Clamped to 0 so it can never slide off-screen below 1600px.
+    left: max(0px, calc((100vw - 1600px) / 2));
+  }
+
   // Green band: section-height overlay that multiplies over the photo so the
   // grayscale harbour shows through. Kept separate from the text so only the
   // image is tinted.
@@ -71,8 +98,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: var(--panel-x);
-    width: var(--panel-w);
+    left: 0;
+    width: 100%;
     z-index: 3;
     background-color: var(--color-green);
     mix-blend-mode: multiply;
@@ -81,11 +108,6 @@
   &__content {
     position: relative;
     z-index: 4;
-    max-width: min(520px, calc(var(--panel-w) - 80px));
-    margin-left: calc(
-      var(--panel-x) +
-        var(--panel-pad-x) - var(--container-edge) - var(--container-pad-x)
-    );
   }
 
   &__title {
@@ -165,31 +187,36 @@
 }
 
 // ─── Hero responsive ────────────────────────────────────────────────────────
-@media (max-width: 991px) {
-  .hero {
-    height: auto;
-    min-height: 460px;
-    --panel-x: clamp(0px, 4vw, 60px);
-    --panel-w: clamp(400px, 60vw, 620px);
+// Laptops — trim the generous padding so the copy sits closer to the edge
+@media (max-width: 1199px) {
+  .hero__inner {
+    padding: 4.5rem 3rem;
   }
 }
 
+@media (max-width: 991px) {
+  .hero {
+    min-height: 420px;
+  }
+
+  .hero__inner {
+    padding: 4rem 2.5rem;
+  }
+}
+
+// Tablets & down — green tint covers the whole banner, arrows hidden
 @media (max-width: 767px) {
   .hero {
-    min-height: 480px;
-    // Green tint covers the whole banner
-    --panel-x: 0px;
-    --panel-w: 100%;
-    --panel-pad-x: 24px;
-    --container-edge: 0px;
+    min-height: 440px;
   }
 
-  .hero__content {
-    max-width: min(560px, calc(100vw - 48px));
+  .hero__inner {
+    max-width: none; // panel fills the full width
+    padding: 3rem 1.75rem;
   }
 
-  // Green tint covers the full banner here — hide the growth arrows so the
-  // copy stays clean (their JS loop also stops at this width)
+  // Hide the growth arrows so the copy stays clean (their JS loop also
+  // stops at this width)
   .hero__arrows {
     display: none;
   }
@@ -197,7 +224,11 @@
 
 @media (max-width: 480px) {
   .hero {
-    --panel-pad-x: 20px;
+    min-height: 400px;
+  }
+
+  .hero__inner {
+    padding: 2.5rem 1.25rem;
   }
 
   .hero__subtitle {
@@ -225,6 +256,7 @@
     text-align: left; // centered block, left-aligned copy
     color: var(--color-text-muted);
     font-size: 22px;
+    text-align: justify;
     line-height: 1.7;
 
     strong {
@@ -294,30 +326,7 @@
       filter: grayscale(0%);
     }
 
-    // White flash band that sweeps left → right across the image on hover
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -75%;
-      z-index: 2;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(
-        120deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.4) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      transform: skewX(-25deg);
-      pointer-events: none;
-    }
-
-    &:hover::before {
-      animation: btn-shineAnim 0.9s ease;
-    }
-
-    // Clip the sweeping band + contain the reveal wipe (see .reveal__pic)
+    // Contain the reveal wipe (see .reveal__pic)
     overflow: hidden;
   }
 
@@ -582,7 +591,7 @@
   &__title {
     color: var(--color-red);
     font-weight: var(--fw-bold);
-    font-size: var(--fs-md); // 18px
+    font-size: var(--fs-xl); // 18px
     line-height: 1.3;
     margin: 0 0 8px;
     @include transEase(color, ease);
@@ -590,7 +599,7 @@
 
   &__text {
     color: var(--color-text-muted);
-    font-size: var(--fs-sm); // 14px
+    font-size: var(--fs-md); // 14px
     line-height: 1.5;
     margin: 0;
     @include transEase(color, ease);

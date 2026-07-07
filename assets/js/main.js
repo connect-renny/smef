@@ -442,6 +442,71 @@ const newsSwiper = new Swiper(".news-swiper", {
   });
 })();
 
+// ─── Hero colour spotlight ───────────────────────────────────────────────────
+// Same idea as the success story: a full-colour copy of the hero photo is
+// masked to a soft circle that trails the cursor over the grayscale base.
+(function () {
+  var section = document.querySelector(".hero");
+  var colorImg = document.querySelector(".hero__bg-color");
+  if (!section || !colorImg) return;
+  if (window.matchMedia("(hover: none)").matches) return; // no cursor to follow
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var RADIUS = 300; // ≈300px spotlight diameter
+
+  // Eased state — x/y trail the cursor, power scales the circle open/closed
+  var spot = { x: 0, y: 0, tx: 0, ty: 0, power: 0, tpower: 0, seeded: false };
+  var rafId = null;
+
+  function frame() {
+    rafId = null;
+
+    spot.x += (spot.tx - spot.x) * 0.16;
+    spot.y += (spot.ty - spot.y) * 0.16;
+    spot.power += (spot.tpower - spot.power) * 0.1;
+
+    colorImg.style.setProperty("--spot-x", spot.x.toFixed(1) + "px");
+    colorImg.style.setProperty("--spot-y", spot.y.toFixed(1) + "px");
+    colorImg.style.setProperty(
+      "--spot-r",
+      (RADIUS * spot.power).toFixed(1) + "px",
+    );
+
+    var settled =
+      Math.abs(spot.tx - spot.x) < 0.3 &&
+      Math.abs(spot.ty - spot.y) < 0.3 &&
+      Math.abs(spot.tpower - spot.power) < 0.003;
+
+    if (!settled) rafId = requestAnimationFrame(frame);
+  }
+
+  function startLoop() {
+    if (rafId === null) rafId = requestAnimationFrame(frame);
+  }
+
+  section.addEventListener("mousemove", function (e) {
+    var rect = colorImg.getBoundingClientRect();
+    spot.tx = e.clientX - rect.left;
+    spot.ty = e.clientY - rect.top;
+
+    if (!spot.seeded) {
+      // First entry — open the spotlight in place instead of sweeping in
+      spot.x = spot.tx;
+      spot.y = spot.ty;
+      spot.seeded = true;
+    }
+
+    spot.tpower = 1;
+    startLoop();
+  });
+
+  section.addEventListener("mouseleave", function () {
+    spot.tpower = 0; // circle eases closed
+    spot.seeded = false;
+    startLoop();
+  });
+})();
+
 // ─── Hero title flip-fade ────────────────────────────────────────────────────
 // Splits the hero heading into words and flips (rotateX) + fades each into view,
 // once, after the preloader has finished. Transform/opacity only, so it never

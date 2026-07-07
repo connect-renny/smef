@@ -2,7 +2,7 @@
 .header {
   position: relative;
   z-index: 1000;
-  padding: 18px 0;
+  padding: 10px 0;
   background-color: var(--color-bg);
 }
 
@@ -18,7 +18,7 @@
   display: block;
 
   img {
-    height: 125px;
+    height: 100px;
     width: auto;
     display: block;
   }
@@ -98,7 +98,7 @@
   padding: 0;
 
   a {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 28px;
