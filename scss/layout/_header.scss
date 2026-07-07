@@ -18,7 +18,7 @@
   display: block;
 
   img {
-    height: 96px;
+    height: 125px;
     width: auto;
     display: block;
   }
@@ -213,6 +213,11 @@
 }
 
 // ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 1600px) {
+  .header__search-input {
+    width: 125px;
+  }
+}
 // Tablet / small desktop — tighten spacing before collapsing
 @media (max-width: 1200px) {
   .header__topbar {

@@ -41,6 +41,13 @@
       color: var(--color-red);
     }
   }
+
+  // Tighten link padding on narrower desktops so the nav doesn't wrap
+  @media (max-width: 1600px) {
+    &__link {
+      padding: 6px 14px;
+    }
+  }
 }
 
 // ─── Mobile backdrop ──────────────────────────────────────────────────────────
@@ -213,5 +220,11 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .nav-main__link {
+    padding: 6px 14px;
   }
 }
