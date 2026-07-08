@@ -511,9 +511,11 @@ const newsSwiper = new Swiper(".news-swiper", {
 // Same effect as the home/success spotlight, wired to the inner-page heroes.
 // No-ops on pages without an .about-hero or .products-hero.
 (function () {
-  var section = document.querySelector(".about-hero, .products-hero");
+  var section = document.querySelector(
+    ".about-hero, .products-hero, .services-hero",
+  );
   var colorImg = document.querySelector(
-    ".about-hero__bg-color, .products-hero__bg-color",
+    ".about-hero__bg-color, .products-hero__bg-color, .services-hero__bg-color",
   );
   if (!section || !colorImg) return;
   if (window.matchMedia("(hover: none)").matches) return; // no cursor to follow

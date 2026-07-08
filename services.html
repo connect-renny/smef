@@ -11,7 +11,7 @@
       content="SME Development Fund (SMEF) — Empowering Omani entrepreneurs and building sustainable businesses."
     />
     <meta name="author" content="SMEF" />
-    <title>SMEF Products — SME Development Fund</title>
+    <title>SMEF Services — SME Development Fund</title>
     <!-- Favicons -->
     <link rel="icon" href="favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="favicon.ico" />
@@ -72,13 +72,15 @@
                   <li class="nav-main__item">
                     <a href="about.html" class="nav-main__link">About Us</a>
                   </li>
-                  <li class="nav-main__item active">
+                  <li class="nav-main__item">
                     <a href="products.html" class="nav-main__link"
                       >SMEF Products</a
                     >
                   </li>
-                  <li class="nav-main__item">
-                    <a href="services.html" class="nav-main__link">SMEF Services</a>
+                  <li class="nav-main__item active">
+                    <a href="services.html" class="nav-main__link"
+                      >SMEF Services</a
+                    >
                   </li>
                   <li class="nav-main__item">
                     <a href="#" class="nav-main__link">Testimonials</a>
@@ -182,10 +184,10 @@
         <li class="mobile-drawer__item">
           <a href="about.html" class="mobile-drawer__link">About Us</a>
         </li>
-        <li class="mobile-drawer__item active">
+        <li class="mobile-drawer__item">
           <a href="products.html" class="mobile-drawer__link">SMEF Products</a>
         </li>
-        <li class="mobile-drawer__item">
+        <li class="mobile-drawer__item active">
           <a href="services.html" class="mobile-drawer__link">SMEF Services</a>
         </li>
         <li class="mobile-drawer__item">
@@ -241,250 +243,177 @@
 
     <main>
       <!-- ═══════════════════════════ HERO ═════════════════════════════════════ -->
-      <section class="products-hero">
-        <div class="products-hero__bg">
-          <img src="assets/images/hero-products.jpg" alt="" />
+      <section class="services-hero">
+        <div class="services-hero__bg">
+          <img src="assets/images/hero-services.jpg" alt="" />
           <!-- Full-colour copy revealed in a spotlight around the cursor
                (mask driven from main.js) -->
           <img
-            src="assets/images/hero-products.jpg"
+            src="assets/images/hero-services.jpg"
             alt=""
-            class="products-hero__bg-color"
+            class="services-hero__bg-color"
             aria-hidden="true"
           />
         </div>
 
-        <div class="products-hero__inner">
-          <div class="products-hero__panel" aria-hidden="true"></div>
-          <div class="products-hero__content">
-            <h1 class="products-hero__title">
-              Financing solutions designed to support businesses at every stage
-              of growth
+        <div class="services-hero__inner">
+          <div class="services-hero__panel" aria-hidden="true"></div>
+          <div class="services-hero__content">
+            <h1 class="services-hero__title">
+              Supporting businesses through guidance, development, and
+              continuous engagement
             </h1>
           </div>
         </div>
       </section>
       <!-- /hero -->
 
-      <!-- ═══════════════════════ SME DEVELOPMENT FUND PRODUCTS ════════════════ -->
-      <section class="products-intro">
+      <!-- ═══════════════════════ SME DEVELOPMENT FUND SERVICES ════════════════ -->
+      <section class="services-list">
         <div class="container">
-          <h2 class="products-intro__title" data-aos="fade-up">
-            SME Development Fund Products
+          <h2 class="services-list__title" data-aos="fade-up">
+            SME Development Fund Services
           </h2>
           <p
-            class="products-intro__text"
+            class="services-list__intro"
             data-aos="fade-up"
             data-aos-delay="150"
           >
-            SMEF offers a range of financing products designed to support
-            entrepreneurs and small and medium enterprises across different
-            stages of their business journey. Each product is structured to
-            address specific business needs while promoting sustainable growth
-            and long-term success.
+            SMEF services focus on supporting businesses through key areas of
+            development:
           </p>
-          <p
-            class="products-intro__text"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <strong>SME Development Fund</strong> products are designed to
-            support businesses through the following key stages of development:
-          </p>
+
+          <div class="services-grid">
+            <!-- Advisory & Consultancy -->
+            <article class="services-card" data-aos="fade-up">
+              <div class="services-card__media reveal__pic">
+                <img
+                  src="assets/images/service-advisory.jpg"
+                  alt="Advisory session with a business owner"
+                />
+              </div>
+              <div class="services-card__body">
+                <h3 class="services-card__title">Advisory &amp; Consultancy</h3>
+                <p class="services-card__text">
+                  Providing practical guidance to help businesses make informed
+                  decisions and improve operational performance.
+                </p>
+                <a href="#" class="services-card__btn">
+                  Learn More <i class="bi bi-arrow-right-circle"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- SME Development Programs -->
+            <article class="services-card" data-aos="fade-up">
+              <div class="services-card__media reveal__pic">
+                <img
+                  src="assets/images/service-development.jpg"
+                  alt="Team collaborating on a development programme"
+                />
+              </div>
+              <div class="services-card__body">
+                <h3 class="services-card__title">SME Development Programs</h3>
+                <p class="services-card__text">
+                  Structured programs designed to support business growth,
+                  innovation, and long-term sustainability.
+                </p>
+                <a href="#" class="services-card__btn">
+                  Learn More <i class="bi bi-arrow-right-circle"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- Training & Workshops -->
+            <article class="services-card" data-aos="fade-up">
+              <div class="services-card__media reveal__pic">
+                <img
+                  src="assets/images/service-training.jpg"
+                  alt="Participants at a training workshop"
+                />
+              </div>
+              <div class="services-card__body">
+                <h3 class="services-card__title">Training &amp; Workshops</h3>
+                <p class="services-card__text">
+                  Offering training initiatives to enhance skills, knowledge,
+                  and business capabilities.
+                </p>
+                <a href="#" class="services-card__btn">
+                  Learn More <i class="bi bi-arrow-right-circle"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- Mentorship & Guidance -->
+            <article class="services-card" data-aos="fade-up">
+              <div class="services-card__media reveal__pic">
+                <img
+                  src="assets/images/service-mentorship.jpg"
+                  alt="Mentor guiding an entrepreneur"
+                />
+              </div>
+              <div class="services-card__body">
+                <h3 class="services-card__title">Mentorship &amp; Guidance</h3>
+                <p class="services-card__text">
+                  Connecting entrepreneurs with experienced mentors to support
+                  their business journey and decision-making.
+                </p>
+                <a href="#" class="services-card__btn">
+                  Learn More <i class="bi bi-arrow-right-circle"></i>
+                </a>
+              </div>
+            </article>
+
+            <!-- Business Support Services -->
+            <article class="services-card" data-aos="fade-up">
+              <div class="services-card__media reveal__pic">
+                <img
+                  src="assets/images/service-business.jpg"
+                  alt="Business support team assisting owners"
+                />
+              </div>
+              <div class="services-card__body">
+                <h3 class="services-card__title">Business Support Services</h3>
+                <p class="services-card__text">
+                  Providing ongoing support to help businesses strengthen
+                  operations and adapt to changing needs.
+                </p>
+                <a href="#" class="services-card__btn">
+                  Learn More <i class="bi bi-arrow-right-circle"></i>
+                </a>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
-      <!-- /products-intro -->
+      <!-- /services-list -->
 
-      <!-- ═══════════════════════════ PRODUCT STAGES ═══════════════════════════ -->
-      <section class="products-stages">
-        <!-- Entrepreneurial Development -->
-        <article class="products-stage" data-aos="fade-up">
-          <div class="products-stage__media">
-            <div class="reveal__pic products-stage__pic">
-              <img
-                src="assets/images/product-entrepreneurial.jpg"
-                alt="Young entrepreneurs reviewing business material"
-              />
-            </div>
-          </div>
-          <div class="products-stage__body">
-            <h3 class="products-stage__title">
-              Entrepreneurial<br />Development
-            </h3>
-            <p class="products-stage__text">
-              Supporting early-stage entrepreneurs in developing viable business
-              ideas and building strong foundations.
-            </p>
-            <a href="#" class="products-stage__btn">
-              Learn More <i class="bi bi-arrow-right-circle"></i>
-            </a>
-          </div>
-        </article>
-
-        <!-- Financing (featured / red) -->
-        <article
-          class="products-stage products-stage--reverse products-stage--featured"
-          data-aos="fade-up"
-        >
-          <div class="products-stage__media">
-            <div class="reveal__pic products-stage__pic">
-              <img
-                src="assets/images/product-financing.jpg"
-                alt="Florists arranging flowers in a small business"
-              />
-            </div>
-          </div>
-          <div class="products-stage__body">
-            <h3 class="products-stage__title">Financing</h3>
-            <p class="products-stage__text">
-              Providing structured financial support to help businesses start,
-              grow, and expand with confidence.
-            </p>
-            <a href="#" class="products-stage__btn">
-              Learn More <i class="bi bi-arrow-right-circle"></i>
-            </a>
-          </div>
-        </article>
-
-        <!-- Nurturing -->
-        <article class="products-stage" data-aos="fade-up">
-          <div class="products-stage__media">
-            <div class="reveal__pic products-stage__pic">
-              <img
-                src="assets/images/product-nurturing.jpg"
-                alt="Attendees at an SMEF business development session"
-              />
-            </div>
-          </div>
-          <div class="products-stage__body">
-            <h3 class="products-stage__title">Nurturing</h3>
-            <p class="products-stage__text">
-              Strengthening business capabilities through guidance, support, and
-              continuous development.
-            </p>
-            <a href="#" class="products-stage__btn">
-              Learn More <i class="bi bi-arrow-right-circle"></i>
-            </a>
-          </div>
-        </article>
-
-        <!-- Legitimizing -->
-        <article
-          class="products-stage products-stage--reverse"
-          data-aos="fade-up"
-        >
-          <div class="products-stage__media">
-            <div class="reveal__pic products-stage__pic">
-              <img
-                src="assets/images/product-legitimizing.jpg"
-                alt="Business owners at a formalization event"
-              />
-            </div>
-          </div>
-          <div class="products-stage__body">
-            <h3 class="products-stage__title">Legitimizing</h3>
-            <p class="products-stage__text">
-              Supporting businesses in formalizing operations and aligning with
-              regulatory and operational requirements.
-            </p>
-            <a href="#" class="products-stage__btn">
-              Learn More <i class="bi bi-arrow-right-circle"></i>
-            </a>
-          </div>
-        </article>
-      </section>
-      <!-- /products-stages -->
-
-      <!-- ═══════════════════ ELIGIBILITY & APPLICATION PROCESS ════════════════ -->
-      <section class="products-apply">
-        <div class="products-apply__banner">
+      <!-- ═══════════════════ HOW SMEF CAN SUPPORT YOU ═════════════════════════ -->
+      <section class="services-support">
+        <div class="services-support__banner">
           <img
-            src="assets/images/eligibility-criteria.jpg"
-            alt="Two Omani businessmen shaking hands in an office"
+            src="assets/images/featured-services.jpg"
+            alt="SMEF team meeting with entrepreneurs"
           />
         </div>
 
         <div class="container">
-          <div class="products-apply__body">
-            <!-- Eligibility Criteria -->
-            <div class="products-apply__block" data-aos="fade-up">
-              <h2 class="products-apply__title">Eligibility Criteria</h2>
-              <p class="products-apply__text">
-                Applicants seeking to avail SMEF services and programs must meet
-                the basic eligibility requirements set by the Fund. These
-                requirements may vary depending on the type of support,
-                financing facility, or development program being applied for.
-              </p>
-              <p class="products-apply__text">In general, applicants should:</p>
-              <ul class="products-apply__list">
-                <li>
-                  Be Omani nationals or legally registered entities in the
-                  Sultanate of Oman
-                </li>
-                <li>
-                  Operate within the small and medium enterprise (SME) sector
-                </li>
-                <li>
-                  Possess a valid business registration and relevant licenses
-                  (where applicable)
-                </li>
-                <li>
-                  Demonstrate a viable business concept or operational business
-                  activity
-                </li>
-                <li>
-                  Meet the financial and documentation requirements of the
-                  selected program or facility
-                </li>
-                <li>
-                  Comply with SMEF policies, regulations, and evaluation
-                  procedures
-                </li>
-              </ul>
-              <p class="products-apply__text">
-                Additional conditions and supporting documents may be required
-                depending on the nature of the application and the specific SMEF
-                initiative or financing product.
-              </p>
-            </div>
-
-            <hr class="products-apply__divider" />
-
-            <!-- Application Process Overview -->
-            <div class="products-apply__block" data-aos="fade-up">
-              <h2 class="products-apply__title">
-                Application Process Overview
-              </h2>
-              <p class="products-apply__text">
-                SMEF aims to make the application process clear, accessible, and
-                efficient for entrepreneurs and SME owners seeking support
-                through its programs and services.
-              </p>
-              <p class="products-apply__text">
-                The general application process includes:
-              </p>
-              <ul class="products-apply__list">
-                <li>Submission of the completed application form</li>
-                <li>Review of required documents and supporting information</li>
-                <li>Initial evaluation of the business concept or proposal</li>
-                <li>
-                  Assessment based on SMEF criteria and program requirements
-                </li>
-                <li>Meetings or discussions with the applicant, if required</li>
-                <li>Final review and approval process</li>
-                <li>Notification of application outcome and next steps</li>
-              </ul>
-              <p class="products-apply__text">
-                Depending on the type of service or financing requested,
-                applicants may be asked to provide additional information or
-                attend further evaluation sessions as part of the review
-                process.
-              </p>
-            </div>
+          <div class="services-support__body" data-aos="fade-up">
+            <h2 class="services-support__title">
+              How SME Development Fund Can Support You
+            </h2>
+            <p class="services-support__text">
+              SMEF services are designed to complement financing solutions by
+              equipping entrepreneurs with the knowledge, tools, and support
+              needed to build strong and sustainable businesses.
+            </p>
+            <a href="#" class="services-support__cta">
+              Discover how SMEF can support your business growth.
+            </a>
           </div>
         </div>
       </section>
-      <!-- /products-apply -->
+      <!-- /services-support -->
 
       <!-- CONTACT US -->
       <section class="contact-design">
