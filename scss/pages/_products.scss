@@ -192,6 +192,7 @@
   flex-direction: column;
   gap: 8px; // thin white lines between rows
   margin-top: clamp(32px, 4vw, 56px);
+  margin-bottom: 8px;
 }
 
 .products-stage {
@@ -220,6 +221,12 @@
     &:hover img {
       filter: grayscale(0%);
     }
+  }
+
+  // Reveal wrapper must fill the media height so the image covers the cell
+  &__pic {
+    height: 100%;
+    overflow: hidden; // contain the reveal wipe
   }
 
   // ─── Text half ────────────────────────────────────────────────────────────
