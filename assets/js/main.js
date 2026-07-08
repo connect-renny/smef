@@ -507,6 +507,71 @@ const newsSwiper = new Swiper(".news-swiper", {
   });
 })();
 
+// ─── About / Products hero colour spotlight ──────────────────────────────────
+// Same effect as the home/success spotlight, wired to the inner-page heroes.
+// No-ops on pages without an .about-hero or .products-hero.
+(function () {
+  var section = document.querySelector(".about-hero, .products-hero");
+  var colorImg = document.querySelector(
+    ".about-hero__bg-color, .products-hero__bg-color",
+  );
+  if (!section || !colorImg) return;
+  if (window.matchMedia("(hover: none)").matches) return; // no cursor to follow
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var RADIUS = 300; // ≈300px spotlight diameter
+
+  var spot = { x: 0, y: 0, tx: 0, ty: 0, power: 0, tpower: 0, seeded: false };
+  var rafId = null;
+
+  function frame() {
+    rafId = null;
+
+    spot.x += (spot.tx - spot.x) * 0.16;
+    spot.y += (spot.ty - spot.y) * 0.16;
+    spot.power += (spot.tpower - spot.power) * 0.1;
+
+    colorImg.style.setProperty("--spot-x", spot.x.toFixed(1) + "px");
+    colorImg.style.setProperty("--spot-y", spot.y.toFixed(1) + "px");
+    colorImg.style.setProperty(
+      "--spot-r",
+      (RADIUS * spot.power).toFixed(1) + "px",
+    );
+
+    var settled =
+      Math.abs(spot.tx - spot.x) < 0.3 &&
+      Math.abs(spot.ty - spot.y) < 0.3 &&
+      Math.abs(spot.tpower - spot.power) < 0.003;
+
+    if (!settled) rafId = requestAnimationFrame(frame);
+  }
+
+  function startLoop() {
+    if (rafId === null) rafId = requestAnimationFrame(frame);
+  }
+
+  section.addEventListener("mousemove", function (e) {
+    var rect = colorImg.getBoundingClientRect();
+    spot.tx = e.clientX - rect.left;
+    spot.ty = e.clientY - rect.top;
+
+    if (!spot.seeded) {
+      spot.x = spot.tx;
+      spot.y = spot.ty;
+      spot.seeded = true;
+    }
+
+    spot.tpower = 1;
+    startLoop();
+  });
+
+  section.addEventListener("mouseleave", function () {
+    spot.tpower = 0;
+    spot.seeded = false;
+    startLoop();
+  });
+})();
+
 // ─── Hero title flip-fade ────────────────────────────────────────────────────
 // Splits the hero heading into words and flips (rotateX) + fades each into view,
 // once, after the preloader has finished. Transform/opacity only, so it never

@@ -1,0 +1,456 @@
+// ═══════════════════════════════════════════════════════════════════════════
+// PRODUCTS PAGE — self-contained styles, independent of the Home/About pages.
+// Class names live under a `.products-*` namespace so changes here never
+// affect other pages. Adapted from about.scss (hero panel is green, not red).
+// Compiles to assets/css/products.css
+// ═══════════════════════════════════════════════════════════════════════════
+@import "../abstracts/mixins";
+
+// ═══════════════════════════════════════════════════════════════════════════
+// HERO  (grayscale photo + green multiply panel + cursor-spotlight colour reveal)
+// ═══════════════════════════════════════════════════════════════════════════
+.products-hero {
+  position: relative;
+  isolation: isolate; // contain the panel's multiply blend
+  display: flex;
+  align-items: center;
+  min-height: 376px;
+  height: clamp(376px, 42vw, 550px);
+  overflow: hidden;
+
+  // Full-bleed grayscale background
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(100%); // black & white hero photo
+    }
+
+    // Full-colour copy revealed through a soft spotlight that follows the
+    // cursor (--spot-* vars driven from main.js)
+    img.products-hero__bg-color {
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: none;
+      pointer-events: none;
+      -webkit-mask-image: radial-gradient(
+        circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%),
+        #000 55%,
+        transparent 100%
+      );
+      mask-image: radial-gradient(
+        circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%),
+        #000 55%,
+        transparent 100%
+      );
+    }
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 680px;
+    padding: 6rem 4rem;
+    // Align with a centered 1600px container's left edge; clamped so it never
+    // slides off-screen below 1600px.
+    left: max(0px, calc((100vw - 1600px) / 2));
+  }
+
+  // Green band that multiplies over the photo
+  &__panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    background-color: var(--color-green);
+    mix-blend-mode: multiply;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 4;
+  }
+
+  &__title {
+    color: var(--white);
+    font-family: var(--heading-font);
+    font-weight: var(--fw-medium);
+    font-size: clamp(1.75rem, 2.8vw, 3rem); // 28 → 48px
+    line-height: 1.18;
+    margin: 0;
+  }
+}
+
+// ─── Hero responsive ─────────────────────────────────────────────────────────
+@media (max-width: 1199px) {
+  .products-hero__inner {
+    padding: 4.5rem 3rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .products-hero {
+    min-height: 420px;
+  }
+
+  .products-hero__inner {
+    padding: 4rem 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .products-hero {
+    min-height: 440px;
+  }
+
+  .products-hero__inner {
+    max-width: none; // green panel fills the full banner
+    padding: 3rem 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-hero {
+    min-height: 400px;
+  }
+
+  .products-hero__inner {
+    padding: 2.5rem 1.25rem;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// INTRO — "SME Development Fund Products"
+// ═══════════════════════════════════════════════════════════════════════════
+.products-intro {
+  padding: clamp(48px, 5vw, 72px) 0 clamp(24px, 3vw, 40px);
+
+  &__title {
+    color: var(--color-red);
+    font-family: var(--heading-font);
+    font-weight: var(--fw-medium);
+    font-size: clamp(1.75rem, 3vw, 2.875rem);
+    line-height: 1.15;
+    text-align: center;
+    margin: 0 0 28px;
+  }
+
+  &__text {
+    max-width: 1160px;
+    margin: 0 auto 20px;
+    text-align: justify;
+    color: var(--color-text-muted);
+    font-size: var(--fs-lg); // 20px
+    line-height: 1.8;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: #3f3f3f;
+      font-weight: var(--fw-bold);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .products-intro__text {
+    font-size: var(--fs-md);
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-intro__text {
+    font-size: var(--fs-base);
+    text-align: left;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// STAGES — full-bleed zig-zag rows (image + coloured text panel), one per
+// product development stage. Grey panels by default; a red "featured" variant.
+// ═══════════════════════════════════════════════════════════════════════════
+.products-stages {
+  --stage-gray: #9d9d9d;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px; // thin white lines between rows
+  margin-top: clamp(32px, 4vw, 56px);
+}
+
+.products-stage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: clamp(340px, 30vw, 500px);
+  padding: 0 8px;
+
+  // ─── Image half ───────────────────────────────────────────────────────────
+  &__media {
+    position: relative;
+    padding: 0 clamp(18px, 2.5vw, 48px);
+    background-color: var(--stage-gray);
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(100%); // colour restored on hover
+      @include transEase(filter, ease);
+    }
+
+    &:hover img {
+      filter: grayscale(0%);
+    }
+  }
+
+  // ─── Text half ────────────────────────────────────────────────────────────
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(32px, 5vw, 80px);
+    background-color: var(--stage-gray);
+    color: #fff;
+  }
+
+  &__title {
+    font-family: var(--heading-font);
+    font-weight: var(--fw-medium);
+    font-size: clamp(1.6rem, 2.5vw, 2.375rem);
+    line-height: 1.15;
+    margin: 0 0 20px;
+  }
+
+  &__text {
+    font-size: var(--fs-md); // 18px
+    line-height: 1.6;
+    margin: 0;
+    max-width: 34ch;
+  }
+
+  // ─── "Learn More" button ──────────────────────────────────────────────────
+  &__btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(22px, 3vw, 44px);
+    margin-top: clamp(22px, 3vw, 40px);
+    padding: 9px 12px 9px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    @include transEase(background-color, ease);
+
+    i {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.14);
+      color: #fff;
+    }
+  }
+
+  // ─── Reverse layout: text left, image right — right-aligned copy ────────────
+  &--reverse {
+    .products-stage__media {
+      order: 2;
+    }
+    .products-stage__body {
+      order: 1;
+      text-align: right;
+      align-items: flex-end;
+    }
+    .products-stage__btn {
+      align-self: flex-end;
+    }
+  }
+
+  // ─── Featured (red) variant: full-colour image, right-aligned copy ──────────
+  &--featured {
+    .products-stage__media {
+      background-color: var(--color-red);
+
+      img {
+        filter: none; // stays in colour
+      }
+    }
+
+    .products-stage__body {
+      background-color: var(--color-red);
+      text-align: right;
+      align-items: flex-end;
+    }
+
+    .products-stage__text {
+      max-width: 30ch;
+    }
+
+    .products-stage__btn {
+      align-self: flex-end;
+    }
+  }
+}
+
+// ─── Stages responsive ───────────────────────────────────────────────────────
+@media (max-width: 767px) {
+  .products-stage {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 0;
+
+    // Image always on top when stacked
+    &__media {
+      padding: 0;
+    }
+    &__media,
+    &--reverse .products-stage__media {
+      order: 1;
+      height: 240px;
+    }
+
+    &__body,
+    &--reverse .products-stage__body {
+      order: 2;
+    }
+
+    // Left-align copy on small screens, even for reverse/featured rows
+    &--reverse .products-stage__body,
+    &--featured .products-stage__body {
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    &--reverse .products-stage__btn,
+    &--featured .products-stage__btn {
+      align-self: flex-start;
+    }
+
+    &--featured .products-stage__media {
+      padding: 0;
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// APPLY — full-bleed grayscale banner + "Eligibility Criteria" and
+// "Application Process Overview" copy blocks with red-bullet lists.
+// ═══════════════════════════════════════════════════════════════════════════
+.products-apply {
+  padding-bottom: clamp(56px, 7vw, 96px);
+
+  // Full-width grayscale banner (mirrors the about banners)
+  &__banner {
+    position: relative;
+    height: clamp(360px, 33vw, 620px);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(100%);
+    }
+  }
+
+  &__body {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-top: clamp(40px, 5vw, 72px);
+  }
+
+  &__title {
+    color: var(--color-red);
+    font-family: var(--heading-font);
+    font-weight: var(--fw-medium);
+    font-size: clamp(1.75rem, 3vw, 2.875rem);
+    line-height: 1.15;
+    text-align: center;
+    margin: 0 0 clamp(22px, 3vw, 34px);
+  }
+
+  &__text {
+    color: var(--color-text-muted);
+    font-size: var(--fs-md); // 18px
+    line-height: 1.75;
+    text-align: justify;
+    margin: 0 0 22px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Red-bullet list
+  &__list {
+    list-style: none;
+    margin: 0 0 22px;
+    padding: 0;
+
+    li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 12px;
+      color: var(--color-text-muted);
+      font-size: var(--fs-md);
+      line-height: 1.5;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 0.5em;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--color-red);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Green rule between the two blocks
+  &__divider {
+    max-width: 1180px;
+    margin: clamp(44px, 5vw, 72px) auto;
+    border: 0;
+    border-top: 1px solid rgba(12, 151, 73, 0.55);
+  }
+}
+
+@media (max-width: 767px) {
+  .products-apply__text,
+  .products-apply__list li {
+    font-size: var(--fs-base);
+  }
+
+  .products-apply__text {
+    text-align: left;
+  }
+}
