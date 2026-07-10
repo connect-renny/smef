@@ -71,8 +71,22 @@
                   <li class="nav-main__item">
                     <a href="index.html" class="nav-main__link">Home Page</a>
                   </li>
-                  <li class="nav-main__item active">
-                    <a href="about.html" class="nav-main__link">About Us</a>
+                  <li class="nav-main__item nav-main__item--dropdown active">
+                    <a href="about.html" class="nav-main__link"
+                      >About Us
+                      <i class="bi bi-chevron-down nav-main__caret"></i
+                    ></a>
+                    <ul class="nav-main__submenu">
+                      <li>
+                        <a href="about.html#vision">Mission Vision &amp; Value</a>
+                      </li>
+                      <li><a href="about.html#profile">Profile</a></li>
+                      <li><a href="about.html">Share Holders</a></li>
+                      <li>
+                        <a href="about.html#board">Board of Directors</a>
+                      </li>
+                      <li><a href="about.html#management">Management</a></li>
+                    </ul>
                   </li>
                   <li class="nav-main__item">
                     <a href="products.html" class="nav-main__link">SMEF Products</a>
@@ -179,8 +193,45 @@
         <li class="mobile-drawer__item">
           <a href="index.html" class="mobile-drawer__link">Home Page</a>
         </li>
-        <li class="mobile-drawer__item active">
-          <a href="about.html" class="mobile-drawer__link">About Us</a>
+        <li class="mobile-drawer__item mobile-drawer__item--dropdown active">
+          <div class="mobile-drawer__row">
+            <a href="about.html" class="mobile-drawer__link">About Us</a>
+            <button
+              class="mobile-drawer__toggle"
+              type="button"
+              aria-label="Toggle About Us submenu"
+              aria-expanded="false"
+            >
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </div>
+          <ul class="mobile-drawer__submenu">
+            <li>
+              <a href="about.html#vision" class="mobile-drawer__sublink"
+                >Mission Vision &amp; Value</a
+              >
+            </li>
+            <li>
+              <a href="about.html#profile" class="mobile-drawer__sublink"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="mobile-drawer__sublink"
+                >Share Holders</a
+              >
+            </li>
+            <li>
+              <a href="about.html#board" class="mobile-drawer__sublink"
+                >Board of Directors</a
+              >
+            </li>
+            <li>
+              <a href="about.html#management" class="mobile-drawer__sublink"
+                >Management</a
+              >
+            </li>
+          </ul>
         </li>
         <li class="mobile-drawer__item">
           <a href="products.html" class="mobile-drawer__link">SMEF Products</a>
@@ -267,7 +318,7 @@
       <!-- /hero -->
 
       <!-- ═══════════════════════ ABOUT SME DEVELOPMENT FUND ═══════════════════ -->
-      <section class="about-intro">
+      <section class="about-intro" id="profile">
         <div class="container">
           <h2 class="about-intro__title" data-aos="fade-up">
             About SME Development Fund
@@ -285,7 +336,7 @@
       <!-- /about-intro -->
 
       <!-- ═══════════════════════════ OUR VISION ═══════════════════════════════ -->
-      <section class="about-feature">
+      <section class="about-feature" id="vision">
         <div class="container">
           <div class="about-feature__row row align-items-center">
             <div class="col-12 about-feature__col--media">
@@ -414,7 +465,7 @@
       <!-- /our-values -->
 
       <!-- ═══════════════════════════ BOARD OF DIRECTORS ═══════════════════════ -->
-      <section class="about-board">
+      <section class="about-board" id="board">
         <div class="about-board__banner">
           <img src="assets/images/board-directors.jpg" alt="" />
         </div>
@@ -527,7 +578,7 @@
       <!-- /board-of-directors -->
 
       <!-- ═══════════════════════════ MANAGEMENT TEAM ══════════════════════════ -->
-      <section class="about-management">
+      <section class="about-management" id="management">
         <div class="about-management__banner">
           <img src="assets/images/management-team.jpg" alt="" />
         </div>

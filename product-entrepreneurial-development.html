@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="SME Development Fund (SMEF) — Empowering Omani entrepreneurs and building sustainable businesses."
+    />
+    <meta name="author" content="SMEF" />
+    <title>Entrepreneurial Development — SME Development Fund</title>
+    <!-- Favicons -->
+    <link rel="icon" href="favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="favicon.ico" />
+
+    <!-- Bootstrap Icon -->
+    <link href="assets/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link href="assets/css/bootstrap.rtl.css" rel="stylesheet" /> -->
+
+    <link href="assets/css/swiper-bundle.css" rel="stylesheet" />
+    <link href="assets/css/aos.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ═══════════════════════════ HEADER ═══════════════════════════════════ -->
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header__inner">
+          <!-- Logo -->
+          <a href="index.html" class="header__logo" aria-label="SMEF — Home">
+            <img src="assets/images/smef-logo.svg" alt="SMEF Inma" />
+          </a>
+
+          <!-- Right column: top contact bar + main nav bar -->
+          <div class="header__main">
+            <!-- Top contact bar -->
+            <div class="header__topbar">
+              <a href="tel:+96822344000" class="contact-item">
+                <span class="contact-item__icon">
+                  <img src="assets/images/tele-icon.svg" alt="" />
+                </span>
+                <span class="contact-item__text">+968 22344000</span>
+              </a>
+              <a href="mailto:info@smefoman.com" class="contact-item">
+                <span class="contact-item__icon">
+                  <img src="assets/images/mail-icon.svg" alt="" />
+                </span>
+                <span class="contact-item__text">info@smefoman.com</span>
+              </a>
+              <span class="contact-item">
+                <span class="contact-item__icon">
+                  <img src="assets/images/time-icon.svg" alt="" />
+                </span>
+                <span class="contact-item__text">8:00am - 4:30pm</span>
+              </span>
+            </div>
+
+            <!-- Main nav bar -->
+            <div class="header__bar">
+              <nav class="nav-main" aria-label="Main navigation">
+                <ul class="nav-main__list">
+                  <li class="nav-main__item">
+                    <a href="index.html" class="nav-main__link">Home Page</a>
+                  </li>
+                  <li class="nav-main__item nav-main__item--dropdown">
+                    <a href="about.html" class="nav-main__link"
+                      >About Us
+                      <i class="bi bi-chevron-down nav-main__caret"></i
+                    ></a>
+                    <ul class="nav-main__submenu">
+                      <li>
+                        <a href="about.html#vision"
+                          >Mission Vision &amp; Value</a
+                        >
+                      </li>
+                      <li><a href="about.html#profile">Profile</a></li>
+                      <li><a href="about.html">Share Holders</a></li>
+                      <li>
+                        <a href="about.html#board">Board of Directors</a>
+                      </li>
+                      <li><a href="about.html#management">Management</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-main__item active">
+                    <a href="products.html" class="nav-main__link"
+                      >SMEF Products</a
+                    >
+                  </li>
+                  <li class="nav-main__item">
+                    <a href="services.html" class="nav-main__link"
+                      >SMEF Services</a
+                    >
+                  </li>
+                  <li class="nav-main__item">
+                    <a href="#" class="nav-main__link">Testimonials</a>
+                  </li>
+                  <li class="nav-main__item">
+                    <a href="#" class="nav-main__link">Media Page</a>
+                  </li>
+                  <li class="nav-main__item">
+                    <a href="#" class="nav-main__link">Contact Us</a>
+                  </li>
+                </ul>
+              </nav>
+
+              <div class="header__utils">
+                <!-- Social -->
+                <ul class="header__social">
+                  <li>
+                    <a href="#" aria-label="Facebook"
+                      ><i class="bi bi-facebook"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" aria-label="X (Twitter)"
+                      ><i class="bi bi-twitter-x"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" aria-label="Instagram"
+                      ><i class="bi bi-instagram"></i
+                    ></a>
+                  </li>
+                </ul>
+
+                <!-- Search -->
+                <form class="header__search" role="search" action="#">
+                  <button
+                    type="submit"
+                    class="header__search-btn"
+                    aria-label="Search"
+                  >
+                    <i class="bi bi-search"></i>
+                  </button>
+                  <input
+                    type="search"
+                    class="header__search-input"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hamburger (mobile) -->
+          <button
+            class="btn-hamburger"
+            id="btnHamburger"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <!-- Mobile backdrop -->
+    <div class="mobile-backdrop" id="mobileBackdrop"></div>
+
+    <!-- Mobile drawer -->
+    <nav
+      class="mobile-drawer"
+      id="mobileDrawer"
+      aria-label="Mobile navigation"
+      aria-hidden="true"
+    >
+      <div class="mobile-drawer__head">
+        <a
+          href="index.html"
+          class="mobile-drawer__logo"
+          aria-label="SMEF — Home"
+        >
+          <img src="assets/images/smef-logo.svg" alt="SMEF Inma" />
+        </a>
+        <button
+          class="mobile-drawer__close"
+          id="btnDrawerClose"
+          aria-label="Close menu"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <ul class="mobile-drawer__list">
+        <li class="mobile-drawer__item">
+          <a href="index.html" class="mobile-drawer__link">Home Page</a>
+        </li>
+        <li class="mobile-drawer__item mobile-drawer__item--dropdown">
+          <div class="mobile-drawer__row">
+            <a href="about.html" class="mobile-drawer__link">About Us</a>
+            <button
+              class="mobile-drawer__toggle"
+              type="button"
+              aria-label="Toggle About Us submenu"
+              aria-expanded="false"
+            >
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </div>
+          <ul class="mobile-drawer__submenu">
+            <li>
+              <a href="about.html#vision" class="mobile-drawer__sublink"
+                >Mission Vision &amp; Value</a
+              >
+            </li>
+            <li>
+              <a href="about.html#profile" class="mobile-drawer__sublink"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="mobile-drawer__sublink"
+                >Share Holders</a
+              >
+            </li>
+            <li>
+              <a href="about.html#board" class="mobile-drawer__sublink"
+                >Board of Directors</a
+              >
+            </li>
+            <li>
+              <a href="about.html#management" class="mobile-drawer__sublink"
+                >Management</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="mobile-drawer__item active">
+          <a href="products.html" class="mobile-drawer__link">SMEF Products</a>
+        </li>
+        <li class="mobile-drawer__item">
+          <a href="services.html" class="mobile-drawer__link">SMEF Services</a>
+        </li>
+        <li class="mobile-drawer__item">
+          <a href="#" class="mobile-drawer__link">Testimonials</a>
+        </li>
+        <li class="mobile-drawer__item">
+          <a href="#" class="mobile-drawer__link">Media Page</a>
+        </li>
+        <li class="mobile-drawer__item">
+          <a href="#" class="mobile-drawer__link">Contact Us</a>
+        </li>
+      </ul>
+
+      <div class="mobile-drawer__foot">
+        <div class="mobile-drawer__contact">
+          <a href="tel:+96822344000" class="contact-item">
+            <span class="contact-item__icon">
+              <img src="assets/images/tele-icon.svg" alt="" />
+            </span>
+            <span class="contact-item__text">+968 22344000</span>
+          </a>
+          <a href="mailto:info@smefoman.com" class="contact-item">
+            <span class="contact-item__icon">
+              <img src="assets/images/mail-icon.svg" alt="" />
+            </span>
+            <span class="contact-item__text">info@smefoman.com</span>
+          </a>
+          <span class="contact-item">
+            <span class="contact-item__icon">
+              <img src="assets/images/time-icon.svg" alt="" />
+            </span>
+            <span class="contact-item__text">8:00am - 4:30pm</span>
+          </span>
+        </div>
+        <ul class="header__social">
+          <li>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          </li>
+          <li>
+            <a href="#" aria-label="X (Twitter)"
+              ><i class="bi bi-twitter-x"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#" aria-label="Instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- /mobile drawer -->
+
+    <main>
+      <!-- ═══════════════════════════ BANNER ═══════════════════════════════════ -->
+      <section class="product-detail-hero">
+        <img
+          src="assets/images/hero-entrepreneurial-development.jpg"
+          alt="Entrepreneur reviewing plans on a tablet"
+        />
+      </section>
+      <!-- /banner -->
+
+      <!-- ═══════════════════════════ INTRO (RED) ══════════════════════════════ -->
+      <section class="product-detail-intro">
+        <div class="container">
+          <h1 class="product-detail-intro__title" data-aos="fade-up">
+            Entrepreneurial Development
+          </h1>
+          <p
+            class="product-detail-intro__text"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            Entrepreneurial Development is a core product of the SME Development
+            Fund, designed to equip aspiring and existing entrepreneurs with the
+            mindset, skills, and support needed to build and grow successful
+            businesses. Through targeted training, mentorship, and access to
+            essential resources, the program fosters innovation, strategic
+            thinking, and adaptability while enabling entrepreneurs to transform
+            ideas into viable enterprises.
+          </p>
+          <p
+            class="product-detail-intro__text"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            By strengthening individual capabilities and supporting business
+            growth, it contributes to job creation, economic diversification,
+            and the development of a sustainable, knowledge-based economy in
+            Oman.
+          </p>
+        </div>
+      </section>
+      <!-- /intro -->
+
+      <!-- ═══════════════════════ ENTREPRENEURIAL CAMPUS ═══════════════════════ -->
+      <section class="product-detail-feature">
+        <div class="container">
+          <div class="product-detail-feature__row row">
+            <div class="col-12 product-detail-feature__col--media">
+              <div class="product-detail-feature__media reveal__pic">
+                <img
+                  src="assets/images/entrepreneurial-dev-campus.jpg"
+                  alt="Attendee raising a hand at a campus session"
+                />
+              </div>
+            </div>
+            <div class="col-12 product-detail-feature__col--text">
+              <div class="product-detail-feature__body" data-aos="fade-up">
+                <div class="product-detail-feature__content">
+                  <h2 class="product-detail-feature__title">
+                    Entrepreneurial<br />Campus
+                  </h2>
+                  <p class="product-detail-feature__text">
+                    Integrated development of an Entrepreneurial culture on
+                    campuses. The Entrepreneurial Campus is a program run and
+                    initiated by SMEF on the campuses of selected colleges, in
+                    cooperation with the Ministry of Higher Education.
+                  </p>
+                  <p class="product-detail-feature__text">
+                    The program is an integrated initiative designed to develop
+                    a culture of entrepreneurship across the campus. The program
+                    is run entirely at the cost of the SME Development Fund and
+                    will seek to fit into existing initiatives on each
+                    college&rsquo;s campus.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /entrepreneurial-campus -->
+
+      <!-- ═══════════════════════════ INTRODUCTORY MODULE ══════════════════════ -->
+      <section class="product-detail-feature">
+        <div class="container">
+          <div
+            class="product-detail-feature__row product-detail-feature__row--reverse row flex-lg-row-reverse"
+          >
+            <div class="col-12 product-detail-feature__col--media">
+              <div class="product-detail-feature__media reveal__pic">
+                <img
+                  src="assets/images/entrepreneurial-dev-introductory.jpg"
+                  alt="Students collaborating in a workshop"
+                />
+              </div>
+            </div>
+            <div class="col-12 product-detail-feature__col--text">
+              <div class="product-detail-feature__body" data-aos="fade-up">
+                <div class="product-detail-feature__content">
+                  <h2 class="product-detail-feature__title">
+                    Introductory<br />Module
+                  </h2>
+                  <p class="product-detail-feature__text">
+                    Comprising a mandatory 4 to 8 hour workshop, based on videos
+                    of young entrepreneurs, entrepreneurship exercise and a
+                    final &lsquo;case&rsquo; presentation by students.
+                  </p>
+                  <p class="product-detail-feature__text">
+                    A number of options for structuring the program are
+                    available to suit every college.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /introductory-module -->
+
+      <!-- ═══════════════════════ ENTREPRENEURIAL CAMPUS ═══════════════════════ -->
+      <section class="product-detail-feature">
+        <div class="container">
+          <div class="product-detail-feature__row row">
+            <div class="col-12 product-detail-feature__col--media">
+              <div class="product-detail-feature__media reveal__pic">
+                <img
+                  src="assets/images/entrepreneurial-dev-namaa.jpg"
+                  alt="Attendee raising a hand at a campus session"
+                />
+              </div>
+            </div>
+            <div class="col-12 product-detail-feature__col--text">
+              <div class="product-detail-feature__body" data-aos="fade-up">
+                <div class="product-detail-feature__content">
+                  <h2 class="product-detail-feature__title">
+                    "Al Namaa" <br />
+                    Entrepreneurship <br />
+                    Society / Club
+                  </h2>
+                  <p class="product-detail-feature__text">
+                    The club would seek to create and sustain awareness,
+                    interest and participation in entrepreneurship activities
+                    across the campus.
+                  </p>
+                  <p class="product-detail-feature__text">
+                    Typical activities would be guest lectures, entrepreneurship
+                    games, entrepreneurship contests, visits to and by
+                    entrepreneurs. The overall activity of the club would be
+                    jointly monitored by the college faculty and the SME Fund
+                    training coordinator. The day to day affairs of the club
+                    would be managed by the students themselves with a view to
+                    giving them experience in management and administration.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /entrepreneurial-campus -->
+
+      <!-- ═══════════════════════════ INTRODUCTORY MODULE ══════════════════════ -->
+      <section class="product-detail-feature">
+        <div class="container">
+          <div
+            class="product-detail-feature__row product-detail-feature__row--reverse row flex-lg-row-reverse"
+          >
+            <div class="col-12 product-detail-feature__col--media">
+              <div class="product-detail-feature__media reveal__pic">
+                <img
+                  src="assets/images/entrepreneurial-dev-companies.jpg"
+                  alt="Students collaborating in a workshop"
+                />
+              </div>
+            </div>
+            <div class="col-12 product-detail-feature__col--text">
+              <div class="product-detail-feature__body" data-aos="fade-up">
+                <div class="product-detail-feature__content">
+                  <h2 class="product-detail-feature__title">
+                    Campus <br />
+                    Companies
+                  </h2>
+                  <p class="product-detail-feature__text">
+                    Designed to give students practical exposure to
+                    entrepreneurship. The SME Fund would initially provide basic
+                    orientation through the Al Namaa entrepreneurship club.
+                    Thereafter, seed capital would be provided to students,
+                    through the club, to set up small commercial activities on
+                    campus. This would be done in conjunction with the college
+                    administration and typical student businesses could be a
+                    photocopy stall, a juice stand, a mini canteen, etc.
+                    Students would be required to develop and present proposals
+                    for the ‘campus company’ through the Al Namaa clubs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /introductory-module -->
+
+      <!-- ═══════════════════════ ENTREPRENEURIAL CAMPUS ═══════════════════════ -->
+      <section class="product-detail-feature">
+        <div class="container">
+          <div class="product-detail-feature__row row">
+            <div class="col-12 product-detail-feature__col--media">
+              <div class="product-detail-feature__media reveal__pic">
+                <img
+                  src="assets/images/entrepreneurial-dev-volunteer.jpg"
+                  alt="Attendee raising a hand at a campus session"
+                />
+              </div>
+            </div>
+            <div class="col-12 product-detail-feature__col--text">
+              <div class="product-detail-feature__body" data-aos="fade-up">
+                <div class="product-detail-feature__content">
+                  <h2 class="product-detail-feature__title">
+                    Volunteer <br />
+                    Faculty
+                  </h2>
+                  <p class="product-detail-feature__text">
+                    Many colleges have faculty trained in entrepreneurship
+                    training and mentoring. For colleges that do not, and for
+                    colleges desiring further faculty development, SME
+                    Development Fund would, in due course provide or subsidize
+                    some amount of faculty development and training. Volunteer
+                    faculty would be expected to, on a light touch basis oversee
+                    activities of the entrepreneurship club and the campus
+                    company. In due course, they could teach the advanced course
+                    on entrepreneurship which is being developed by the Ministry
+                    of Higher Education.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /entrepreneurial-campus -->
+
+      <!-- ═══════════════════════════ INTRODUCTORY MODULE ══════════════════════ -->
+      <section class="product-detail-feature">
+        <div class="container">
+          <div
+            class="product-detail-feature__row product-detail-feature__row--reverse row flex-lg-row-reverse"
+          >
+            <div class="col-12 product-detail-feature__col--media">
+              <div class="product-detail-feature__media reveal__pic">
+                <img
+                  src="assets/images/entrepreneurial-dev-advanced-module.jpg"
+                  alt="Students collaborating in a workshop"
+                />
+              </div>
+            </div>
+            <div class="col-12 product-detail-feature__col--text">
+              <div class="product-detail-feature__body" data-aos="fade-up">
+                <div class="product-detail-feature__content">
+                  <h2 class="product-detail-feature__title">
+                    Advanced <br />
+                    Module
+                  </h2>
+                  <p class="product-detail-feature__text">
+                    The ‘entrepreneurial campus’ would support the colleges’
+                    plans for launch advanced training in entrepreneurship.
+                  </p>
+                  <p class="product-detail-feature__text">
+                    This could take the form of arrangement of guest speakers,
+                    support with faculty development, collaboration on course
+                    development as may be specifically agreed with the
+                    participating college.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /introductory-module -->
+
+      <!-- ═══════════════════════ ENTREPRENEURIAL CAMPUS ═══════════════════════ -->
+      <section class="product-detail-feature">
+        <div class="container">
+          <div class="product-detail-feature__row row">
+            <div class="col-12 product-detail-feature__col--media">
+              <div class="product-detail-feature__media reveal__pic">
+                <img
+                  src="assets/images/entrepreneurial-dev-alumni.jpg"
+                  alt="Attendee raising a hand at a campus session"
+                />
+              </div>
+            </div>
+            <div class="col-12 product-detail-feature__col--text">
+              <div class="product-detail-feature__body" data-aos="fade-up">
+                <div class="product-detail-feature__content">
+                  <h2 class="product-detail-feature__title">
+                    Alumni <br />
+                    Outreach
+                  </h2>
+                  <p class="product-detail-feature__text">
+                    Once the ‘entrepreneurial campus’ is stabilized within a
+                    particular campus, a process of Alumni outreach would be
+                    initiated inviting Alumni back for involvement with
+                    entrepreneurship training and activities on campus,
+                    activities of the entrepreneurship club and perhaps limited
+                    participation in the advanced module. In course of time, the
+                    module that is being designed for senior entrepreneurs would
+                    be rolled out for the Alumni of selected colleges as well.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /entrepreneurial-campus -->
+
+      <!-- ═══════════════════════════ INTRODUCTORY MODULE ══════════════════════ -->
+      <section class="product-detail-feature">
+        <div class="container">
+          <div
+            class="product-detail-feature__row product-detail-feature__row--reverse row flex-lg-row-reverse"
+          >
+            <div class="col-12 product-detail-feature__col--media">
+              <div class="product-detail-feature__media reveal__pic">
+                <img
+                  src="assets/images/entrepreneurial-dev-senior-module.jpg"
+                  alt="Students collaborating in a workshop"
+                />
+              </div>
+            </div>
+            <div class="col-12 product-detail-feature__col--text">
+              <div class="product-detail-feature__body" data-aos="fade-up">
+                <div class="product-detail-feature__content">
+                  <h2 class="product-detail-feature__title">
+                    Senior <br />
+                    Entrepreneur <br />
+                    Module
+                  </h2>
+                  <p class="product-detail-feature__text">
+                    Senior Entrepreneur Module is aimed to train senior officers
+                    & staff to utilize their long years of experience in
+                    entrepreneurship. The 'boot camp' style training includes
+                    class work, practical work, exercises and projects and will
+                    be supported by leading firms like Denton & Co., KPMG, etc.
+                    The class room training will cover business basics like
+                    accounting & book keeping, law, marketing, business
+                    communications, etc. Major companies will be invited to
+                    showcase SME opportunities to the trainees.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /introductory-module -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="site-footer__top">
+        <div class="site-footer__inner">
+          <h2 class="site-footer__title">Quick Links</h2>
+
+          <div class="site-footer__grid">
+            <nav class="site-footer__links" aria-label="Footer navigation">
+              <ul class="site-footer__column">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Vision &amp; Mission</a></li>
+              </ul>
+              <ul class="site-footer__column">
+                <li><a href="#">Share Holders</a></li>
+                <li><a href="#">Board of Directors</a></li>
+                <li><a href="#">Management</a></li>
+              </ul>
+              <ul class="site-footer__column">
+                <li><a href="#">The Four Point Plan</a></li>
+                <li><a href="#">Special Initiatives</a></li>
+                <li><a href="#">News &amp; Articles</a></li>
+              </ul>
+              <ul class="site-footer__column">
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Facility Application Form</a></li>
+              </ul>
+            </nav>
+
+            <div class="site-footer__contact">
+              <a href="tel:+96822344000"
+                ><i class="bi bi-telephone-fill"></i>+968 22344000</a
+              >
+              <a href="mailto:info@smefoman.com"
+                ><i class="bi bi-envelope-fill"></i>info@smefoman.com</a
+              >
+              <span><i class="bi bi-clock-fill"></i>8:00am - 4:30pm</span>
+            </div>
+
+            <div class="site-footer__tools">
+              <ul class="site-footer__social" aria-label="Social links">
+                <li>
+                  <a href="#" aria-label="Facebook"
+                    ><i class="bi bi-facebook"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+                </li>
+                <li>
+                  <a href="#" aria-label="Instagram"
+                    ><i class="bi bi-instagram"></i
+                  ></a>
+                </li>
+              </ul>
+              <form class="site-footer__search" role="search">
+                <label class="visually-hidden" for="footerSearch">Search</label>
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input id="footerSearch" type="search" placeholder="Search" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        Copyright &copy; 2017 SMEF . All rights reserved. Powered by ADventz
+      </div>
+    </footer>
+    <!-- /footer -->
+
+    <!-- Return to top — ring fills with scroll progress -->
+    <a
+      href="javascript:;"
+      id="return-top"
+      class="return-top"
+      aria-label="Back to top"
+    >
+      <svg
+        class="return-top__progress"
+        viewBox="-1 -1 102 102"
+        aria-hidden="true"
+      >
+        <path
+          class="return-top__progress-track"
+          d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+        />
+        <path
+          class="return-top__progress-fill"
+          d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+        />
+      </svg>
+      <img src="assets/images/up-icon.svg" alt="Up" />
+    </a>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper slider -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!-- Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <!-- Custom scroll -->
+    <script src="assets/js/aos.js"></script>
+    <!-- GSAP (preloader + scroll reveal) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    <script>
+      // AOS animation
+      AOS.init({
+        duration: 900,
+        easing: "ease-out-cubic",
+        once: true,
+      });
+    </script>
+  </body>
+</html>

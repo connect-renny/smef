@@ -211,6 +211,25 @@ window.addEventListener("scroll", function () {
   drawer.querySelectorAll(".mobile-drawer__link").forEach(function (link) {
     link.addEventListener("click", closeDrawer);
   });
+
+  // About-Us submenu accordion (expand/collapse on caret tap)
+  drawer
+    .querySelectorAll(".mobile-drawer__toggle")
+    .forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var item = btn.closest(".mobile-drawer__item--dropdown");
+        if (!item) return;
+        var expanded = item.classList.toggle("is-expanded");
+        btn.setAttribute("aria-expanded", expanded ? "true" : "false");
+      });
+    });
+
+  // Submenu links close the drawer on navigation
+  drawer
+    .querySelectorAll(".mobile-drawer__sublink")
+    .forEach(function (link) {
+      link.addEventListener("click", closeDrawer);
+    });
 })();
 
 // Scroll to top----------------

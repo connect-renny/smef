@@ -295,14 +295,10 @@
     }
   }
 
-  // ─── Featured (red) variant: full-colour image, right-aligned copy ──────────
+  // ─── Featured (red) variant: right-aligned copy ─────────────────────────────
   &--featured {
     .products-stage__media {
       background-color: var(--color-red);
-
-      img {
-        filter: none; // stays in colour
-      }
     }
 
     .products-stage__body {
@@ -379,7 +375,12 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: grayscale(100%);
+      filter: grayscale(100%); // colour restored on hover
+      @include transEase(filter, ease);
+    }
+
+    &:hover img {
+      filter: grayscale(0%);
     }
   }
 

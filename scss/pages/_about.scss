@@ -284,7 +284,12 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: grayscale(100%);
+      filter: grayscale(100%); // colour restored on hover
+      @include transEase(filter, ease);
+    }
+
+    &:hover img {
+      filter: grayscale(0%);
     }
   }
 
@@ -363,7 +368,12 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: grayscale(100%);
+      filter: grayscale(100%); // colour restored on hover
+      @include transEase(filter, ease);
+    }
+
+    &:hover img {
+      filter: grayscale(0%);
     }
   }
 
@@ -455,7 +465,12 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: grayscale(100%);
+      filter: grayscale(100%); // colour restored on hover
+      @include transEase(filter, ease);
+    }
+
+    &:hover img {
+      filter: grayscale(0%);
     }
   }
 
