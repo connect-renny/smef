@@ -213,23 +213,19 @@ window.addEventListener("scroll", function () {
   });
 
   // About-Us submenu accordion (expand/collapse on caret tap)
-  drawer
-    .querySelectorAll(".mobile-drawer__toggle")
-    .forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var item = btn.closest(".mobile-drawer__item--dropdown");
-        if (!item) return;
-        var expanded = item.classList.toggle("is-expanded");
-        btn.setAttribute("aria-expanded", expanded ? "true" : "false");
-      });
+  drawer.querySelectorAll(".mobile-drawer__toggle").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var item = btn.closest(".mobile-drawer__item--dropdown");
+      if (!item) return;
+      var expanded = item.classList.toggle("is-expanded");
+      btn.setAttribute("aria-expanded", expanded ? "true" : "false");
     });
+  });
 
   // Submenu links close the drawer on navigation
-  drawer
-    .querySelectorAll(".mobile-drawer__sublink")
-    .forEach(function (link) {
-      link.addEventListener("click", closeDrawer);
-    });
+  drawer.querySelectorAll(".mobile-drawer__sublink").forEach(function (link) {
+    link.addEventListener("click", closeDrawer);
+  });
 })();
 
 // Scroll to top----------------
@@ -531,10 +527,10 @@ const newsSwiper = new Swiper(".news-swiper", {
 // No-ops on pages without an .about-hero or .products-hero.
 (function () {
   var section = document.querySelector(
-    ".about-hero, .products-hero, .services-hero",
+    ".about-hero, .products-hero, .services-hero, .testimonials-hero",
   );
   var colorImg = document.querySelector(
-    ".about-hero__bg-color, .products-hero__bg-color, .services-hero__bg-color",
+    ".about-hero__bg-color, .products-hero__bg-color, .services-hero__bg-color, .testimonials-hero__bg-color",
   );
   if (!section || !colorImg) return;
   if (window.matchMedia("(hover: none)").matches) return; // no cursor to follow
@@ -637,7 +633,11 @@ const newsSwiper = new Swiper(".news-swiper", {
     var words = splitWords(title);
     // Establish the hidden "from" state before revealing the title, so the
     // first painted frame is already flipped away (no full-opacity flash).
-    gsap.set(words, { transformOrigin: "50% 100%", rotationX: -90, opacity: 0 });
+    gsap.set(words, {
+      transformOrigin: "50% 100%",
+      rotationX: -90,
+      opacity: 0,
+    });
     title.style.visibility = "visible";
     gsap.to(words, {
       rotationX: 0,
@@ -654,4 +654,49 @@ const newsSwiper = new Swiper(".news-swiper", {
   } else {
     run();
   }
+})();
+
+// ─── Archive event carousels (Swiper) ────────────────────────────────────────
+// No-ops on pages without .media-archive__carousel or without Swiper loaded.
+(function () {
+  if (typeof Swiper === "undefined") return;
+  document
+    .querySelectorAll(".media-archive__carousel")
+    .forEach(function (carousel) {
+      new Swiper(carousel.querySelector(".media-archive__swiper"), {
+        slidesPerView: "auto", // slide width follows each image's aspect
+        spaceBetween: 20,
+        navigation: {
+          prevEl: carousel.querySelector(".archive-nav--prev"),
+          nextEl: carousel.querySelector(".archive-nav--next"),
+        },
+      });
+    });
+})();
+
+// ─── Testimonials — profile thumbs synced to the big quote slide ──────────────
+// No-ops on pages without .testi-thumbs / .testi-main or without Swiper.
+(function () {
+  if (typeof Swiper === "undefined") return;
+  var thumbsEl = document.querySelector(".testi-thumbs");
+  var mainEl = document.querySelector(".testi-main");
+  if (!thumbsEl || !mainEl) return;
+
+  var thumbs = new Swiper(thumbsEl, {
+    slidesPerView: 2,
+    spaceBetween: 8,
+    watchSlidesProgress: true,
+    breakpoints: {
+      480: { slidesPerView: 3 },
+      768: { slidesPerView: 4 },
+      992: { slidesPerView: 6 },
+    },
+  });
+
+  new Swiper(mainEl, {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    speed: 2000, // slower, smoother slide
+    thumbs: { swiper: thumbs },
+  });
 })();

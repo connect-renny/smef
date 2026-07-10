@@ -11,7 +11,7 @@
       content="SME Development Fund (SMEF) — Empowering Omani entrepreneurs and building sustainable businesses."
     />
     <meta name="author" content="SMEF" />
-    <title>SMEF Services — SME Development Fund</title>
+    <title>Testimonials — SME Development Fund</title>
     <!-- Favicons -->
     <link rel="icon" href="favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="favicon.ico" />
@@ -76,7 +76,9 @@
                     ></a>
                     <ul class="nav-main__submenu">
                       <li>
-                        <a href="about.html#vision">Mission Vision &amp; Value</a>
+                        <a href="about.html#vision"
+                          >Mission Vision &amp; Value</a
+                        >
                       </li>
                       <li><a href="about.html#profile">Profile</a></li>
                       <li><a href="about.html">Share Holders</a></li>
@@ -91,19 +93,23 @@
                       >SMEF Products</a
                     >
                   </li>
-                  <li class="nav-main__item active">
+                  <li class="nav-main__item">
                     <a href="services.html" class="nav-main__link"
                       >SMEF Services</a
                     >
                   </li>
-                  <li class="nav-main__item">
-                    <a href="testimonials.html" class="nav-main__link">Testimonials</a>
+                  <li class="nav-main__item active">
+                    <a href="testimonials.html" class="nav-main__link"
+                      >Testimonials</a
+                    >
                   </li>
                   <li class="nav-main__item">
                     <a href="media.html" class="nav-main__link">Media Page</a>
                   </li>
                   <li class="nav-main__item">
-                    <a href="contact-us.html" class="nav-main__link">Contact Us</a>
+                    <a href="contact-us.html" class="nav-main__link"
+                      >Contact Us</a
+                    >
                   </li>
                 </ul>
               </nav>
@@ -238,10 +244,10 @@
         <li class="mobile-drawer__item">
           <a href="products.html" class="mobile-drawer__link">SMEF Products</a>
         </li>
-        <li class="mobile-drawer__item active">
+        <li class="mobile-drawer__item">
           <a href="services.html" class="mobile-drawer__link">SMEF Services</a>
         </li>
-        <li class="mobile-drawer__item">
+        <li class="mobile-drawer__item active">
           <a href="testimonials.html" class="mobile-drawer__link">Testimonials</a>
         </li>
         <li class="mobile-drawer__item">
@@ -294,228 +300,312 @@
 
     <main>
       <!-- ═══════════════════════════ HERO ═════════════════════════════════════ -->
-      <section class="services-hero">
-        <div class="services-hero__bg">
-          <img src="assets/images/hero-services.jpg" alt="" />
+      <section class="testimonials-hero">
+        <div class="testimonials-hero__bg">
+          <img src="assets/images/hero-testimonials-us.jpg" alt="" />
           <!-- Full-colour copy revealed in a spotlight around the cursor
                (mask driven from main.js) -->
           <img
-            src="assets/images/hero-services.jpg"
+            src="assets/images/hero-testimonials-us.jpg"
             alt=""
-            class="services-hero__bg-color"
+            class="testimonials-hero__bg-color"
             aria-hidden="true"
           />
         </div>
 
-        <div class="services-hero__inner">
-          <div class="services-hero__panel" aria-hidden="true"></div>
-          <div class="services-hero__content">
-            <h1 class="services-hero__title">
-              Supporting businesses through guidance, development, and
-              continuous engagement
+        <div class="testimonials-hero__inner">
+          <div class="testimonials-hero__panel" aria-hidden="true"></div>
+          <div class="testimonials-hero__content">
+            <h1 class="testimonials-hero__title">
+              Real stories from entrepreneurs supported by SME Development Fund
             </h1>
           </div>
         </div>
       </section>
       <!-- /hero -->
 
-      <!-- ═══════════════════════ SME DEVELOPMENT FUND SERVICES ════════════════ -->
-      <section class="services-list">
+      <!-- ═══════════════════════════ TESTIMONIALS ═════════════════════════════ -->
+      <section class="testi">
         <div class="container">
-          <h2 class="services-list__title" data-aos="fade-up">
+          <h2 class="testi__title" data-aos="fade-up">
             SME Development Fund Services
           </h2>
-          <p
-            class="services-list__intro"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
-            SMEF services focus on supporting businesses through key areas of
-            development:
+          <p class="testi__intro" data-aos="fade-up" data-aos-delay="150">
+            Discover how SMEF has supported entrepreneurs and small businesses
+            across Oman. These stories reflect the experiences of individuals
+            and companies who have benefited from SMEF&rsquo;s financing,
+            programs, and advisory support.
           </p>
+        </div>
 
-          <div class="services-grid">
-            <!-- Advisory & Consultancy -->
-            <article class="services-card" data-aos="fade-up">
-              <div class="services-card__media reveal__pic">
-                <img
-                  src="assets/images/service-advisory.jpg"
-                  alt="Advisory session with a business owner"
-                />
+        <!-- Profile thumbnails — clicking one shows its testimonial -->
+        <div class="swiper testi-thumbs">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-card__media">
+                  <img src="assets/images/testi-thumb-01.jpg" alt="Name of Client" />
+                </div>
+                <div class="testi-card__body">
+                  <h3 class="testi-card__name">Name of Client</h3>
+                  <p class="testi-card__type">Business Type</p>
+                  <p class="testi-card__years">X years SMEF Client</p>
+                </div>
               </div>
-              <div class="services-card__body">
-                <h3 class="services-card__title">Advisory &amp; Consultancy</h3>
-                <p class="services-card__text">
-                  Providing practical guidance to help businesses make informed
-                  decisions and improve operational performance.
-                </p>
-                <a href="#" class="services-card__btn">
-                  Learn More <i class="bi bi-arrow-right-circle"></i>
-                </a>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-card__media">
+                  <img src="assets/images/testi-thumb-02.jpg" alt="Name of Client" />
+                </div>
+                <div class="testi-card__body">
+                  <h3 class="testi-card__name">Name of Client</h3>
+                  <p class="testi-card__type">Business Type</p>
+                  <p class="testi-card__years">X years SMEF Client</p>
+                </div>
               </div>
-            </article>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-card__media">
+                  <img src="assets/images/testi-thumb-03.jpg" alt="Name of Client" />
+                </div>
+                <div class="testi-card__body">
+                  <h3 class="testi-card__name">Name of Client</h3>
+                  <p class="testi-card__type">Business Type</p>
+                  <p class="testi-card__years">X years SMEF Client</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-card__media">
+                  <img src="assets/images/testi-thumb-04.jpg" alt="Name of Client" />
+                </div>
+                <div class="testi-card__body">
+                  <h3 class="testi-card__name">Name of Client</h3>
+                  <p class="testi-card__type">Business Type</p>
+                  <p class="testi-card__years">X years SMEF Client</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-card__media">
+                  <img src="assets/images/testi-thumb-05.jpg" alt="Name of Client" />
+                </div>
+                <div class="testi-card__body">
+                  <h3 class="testi-card__name">Name of Client</h3>
+                  <p class="testi-card__type">Business Type</p>
+                  <p class="testi-card__years">X years SMEF Client</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testi-card">
+                <div class="testi-card__media">
+                  <img src="assets/images/testi-thumb-06.jpg" alt="Name of Client" />
+                </div>
+                <div class="testi-card__body">
+                  <h3 class="testi-card__name">Name of Client</h3>
+                  <p class="testi-card__type">Business Type</p>
+                  <p class="testi-card__years">X years SMEF Client</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-            <!-- SME Development Programs -->
-            <article class="services-card" data-aos="fade-up">
-              <div class="services-card__media reveal__pic">
-                <img
-                  src="assets/images/service-development.jpg"
-                  alt="Team collaborating on a development programme"
-                />
-              </div>
-              <div class="services-card__body">
-                <h3 class="services-card__title">SME Development Programs</h3>
-                <p class="services-card__text">
-                  Structured programs designed to support business growth,
-                  innovation, and long-term sustainability.
-                </p>
-                <a href="#" class="services-card__btn">
-                  Learn More <i class="bi bi-arrow-right-circle"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- Training & Workshops -->
-            <article class="services-card" data-aos="fade-up">
-              <div class="services-card__media reveal__pic">
-                <img
-                  src="assets/images/service-training.jpg"
-                  alt="Participants at a training workshop"
-                />
-              </div>
-              <div class="services-card__body">
-                <h3 class="services-card__title">Training &amp; Workshops</h3>
-                <p class="services-card__text">
-                  Offering training initiatives to enhance skills, knowledge,
-                  and business capabilities.
-                </p>
-                <a href="#" class="services-card__btn">
-                  Learn More <i class="bi bi-arrow-right-circle"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- Mentorship & Guidance -->
-            <article class="services-card" data-aos="fade-up">
-              <div class="services-card__media reveal__pic">
-                <img
-                  src="assets/images/service-mentorship.jpg"
-                  alt="Mentor guiding an entrepreneur"
-                />
-              </div>
-              <div class="services-card__body">
-                <h3 class="services-card__title">Mentorship &amp; Guidance</h3>
-                <p class="services-card__text">
-                  Connecting entrepreneurs with experienced mentors to support
-                  their business journey and decision-making.
-                </p>
-                <a href="#" class="services-card__btn">
-                  Learn More <i class="bi bi-arrow-right-circle"></i>
-                </a>
-              </div>
-            </article>
-
-            <!-- Business Support Services -->
-            <article class="services-card" data-aos="fade-up">
-              <div class="services-card__media reveal__pic">
-                <img
-                  src="assets/images/service-business.jpg"
-                  alt="Business support team assisting owners"
-                />
-              </div>
-              <div class="services-card__body">
-                <h3 class="services-card__title">Business Support Services</h3>
-                <p class="services-card__text">
-                  Providing ongoing support to help businesses strengthen
-                  operations and adapt to changing needs.
-                </p>
-                <a href="#" class="services-card__btn">
-                  Learn More <i class="bi bi-arrow-right-circle"></i>
-                </a>
-              </div>
-            </article>
+        <!-- Big testimonial slide (synced to the active thumb) -->
+        <div class="swiper testi-main">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <figure class="testi-quote">
+                <div class="testi-quote__bg">
+                  <img src="assets/images/testi-large-01.jpg" alt="" />
+                </div>
+                <figcaption class="testi-quote__body">
+                  <p class="testi-quote__text">
+                    <span class="testi-quote__mark">&ldquo;</span>SMEF provided us
+                    with the support we needed to grow our business with
+                    confidence. The guidance and financing helped us take the
+                    next step forward.<span class="testi-quote__mark testi-quote__mark--close">&rdquo;</span>
+                  </p>
+                  <span class="testi-quote__name">Name of Client Here</span>
+                  <p class="testi-quote__role">
+                    Business Owner,<br />XYZ Office Supplies
+                  </p>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure class="testi-quote">
+                <div class="testi-quote__bg">
+                  <img src="assets/images/testi-large-01.jpg" alt="" />
+                </div>
+                <figcaption class="testi-quote__body">
+                  <p class="testi-quote__text">
+                    <span class="testi-quote__mark">&ldquo;</span>SMEF provided us
+                    with the support we needed to grow our business with
+                    confidence. The guidance and financing helped us take the
+                    next step forward.<span class="testi-quote__mark testi-quote__mark--close">&rdquo;</span>
+                  </p>
+                  <span class="testi-quote__name">Name of Client Here</span>
+                  <p class="testi-quote__role">
+                    Business Owner,<br />XYZ Office Supplies
+                  </p>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure class="testi-quote">
+                <div class="testi-quote__bg">
+                  <img src="assets/images/testi-large-01.jpg" alt="" />
+                </div>
+                <figcaption class="testi-quote__body">
+                  <p class="testi-quote__text">
+                    <span class="testi-quote__mark">&ldquo;</span>SMEF provided us
+                    with the support we needed to grow our business with
+                    confidence. The guidance and financing helped us take the
+                    next step forward.<span class="testi-quote__mark testi-quote__mark--close">&rdquo;</span>
+                  </p>
+                  <span class="testi-quote__name">Name of Client Here</span>
+                  <p class="testi-quote__role">
+                    Business Owner,<br />XYZ Office Supplies
+                  </p>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure class="testi-quote">
+                <div class="testi-quote__bg">
+                  <img src="assets/images/testi-large-01.jpg" alt="" />
+                </div>
+                <figcaption class="testi-quote__body">
+                  <p class="testi-quote__text">
+                    <span class="testi-quote__mark">&ldquo;</span>SMEF provided us
+                    with the support we needed to grow our business with
+                    confidence. The guidance and financing helped us take the
+                    next step forward.<span class="testi-quote__mark testi-quote__mark--close">&rdquo;</span>
+                  </p>
+                  <span class="testi-quote__name">Name of Client Here</span>
+                  <p class="testi-quote__role">
+                    Business Owner,<br />XYZ Office Supplies
+                  </p>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure class="testi-quote">
+                <div class="testi-quote__bg">
+                  <img src="assets/images/testi-large-01.jpg" alt="" />
+                </div>
+                <figcaption class="testi-quote__body">
+                  <p class="testi-quote__text">
+                    <span class="testi-quote__mark">&ldquo;</span>SMEF provided us
+                    with the support we needed to grow our business with
+                    confidence. The guidance and financing helped us take the
+                    next step forward.<span class="testi-quote__mark testi-quote__mark--close">&rdquo;</span>
+                  </p>
+                  <span class="testi-quote__name">Name of Client Here</span>
+                  <p class="testi-quote__role">
+                    Business Owner,<br />XYZ Office Supplies
+                  </p>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure class="testi-quote">
+                <div class="testi-quote__bg">
+                  <img src="assets/images/testi-large-01.jpg" alt="" />
+                </div>
+                <figcaption class="testi-quote__body">
+                  <p class="testi-quote__text">
+                    <span class="testi-quote__mark">&ldquo;</span>SMEF provided us
+                    with the support we needed to grow our business with
+                    confidence. The guidance and financing helped us take the
+                    next step forward.<span class="testi-quote__mark testi-quote__mark--close">&rdquo;</span>
+                  </p>
+                  <span class="testi-quote__name">Name of Client Here</span>
+                  <p class="testi-quote__role">
+                    Business Owner,<br />XYZ Office Supplies
+                  </p>
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
-      <!-- /services-list -->
+      <!-- /testimonials -->
 
-      <!-- ═══════════════════ HOW SMEF CAN SUPPORT YOU ═════════════════════════ -->
-      <section class="services-support">
-        <div class="services-support__banner">
-          <img
-            src="assets/images/featured-services.jpg"
-            alt="SMEF team meeting with entrepreneurs"
-          />
-        </div>
-
+      <!-- ═══════════════════ SUPPORTED BY SMEF SINCE 2018 ═════════════════════ -->
+      <section class="testi-supported">
         <div class="container">
-          <div class="services-support__body" data-aos="fade-up">
-            <h2 class="services-support__title">
-              How SME Development Fund Can Support You
+          <div class="testi-supported__grid">
+            <h2 class="testi-supported__title" data-aos="fade-up">
+              Supported by<br />SME Development Fund<br />since 2018
             </h2>
-            <p class="services-support__text">
-              SMEF services are designed to complement financing solutions by
-              equipping entrepreneurs with the knowledge, tools, and support
-              needed to build strong and sustainable businesses.
-            </p>
-            <a href="#" class="services-support__cta">
-              Discover how SMEF can support your business growth.
-            </a>
-          </div>
-        </div>
-      </section>
-      <!-- /services-support -->
 
-      <!-- CONTACT US -->
-      <section class="contact-design">
-        <div class="contact-design__inner">
-          <h2 class="contact-design__title">Contact Us</h2>
-
-          <div class="contact-design__row">
-            <div class="contact-design__brand" aria-hidden="true">
-              <img src="assets/images/smef-logo.png" alt="" />
+            <div class="testi-supported__col" data-aos="fade-up">
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nos
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nos
+              </p>
             </div>
 
-            <div class="contact-design__details">
-              <address class="contact-design__address">
-                <strong>Head Office</strong>
-                SME Development Fund<br />
-                PO BOX 119, PC 103<br />
-                Sultanate of Oman<br />
-                Fifth Floor, Block V<br />
-                Panorama Mall, Al Ghubrah<br />
-                Tel: +968 22344000<br />
-                E-mail: info@smefoman.com
-              </address>
-
-              <address class="contact-design__address">
-                <strong>Salalah Branch</strong>
-                Mohammed Shabbir Akhter:<br />
-                90160987 Tel: 23292419
-              </address>
-
-              <address class="contact-design__address">
-                <strong>Sohar Branch</strong>
-                Ali Al Farsi:<br />
-                96096175
-              </address>
+            <div class="testi-supported__col" data-aos="fade-up">
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nos.
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+                diam nonummy nibh euismod tincidunt.
+              </p>
+              <p>
+                Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis
+              </p>
             </div>
 
-            <div
-              class="contact-design__map"
-              aria-label="SME Development Fund map location"
-            >
-              <iframe
-                title="SME Development Fund location map"
-                src="https://www.google.com/maps?q=Panorama%20Mall%20Al%20Ghubrah%20Muscat%20Oman&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+            <div class="testi-supported__col" data-aos="fade-up">
+              <p>
+                nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
+                iriure dolor in hendrerit in vulputate velit esse molestie
+                consequat, vel illum dolore eu feugiat.
+              </p>
+              <p>
+                Nulla facilisis at vero eros et accumsan et iusto odio dignissim
+                qui blandit praesent luptatum zzril delenit augue duis dolore te
+                feugait nulla facilisi.
+              </p>
             </div>
           </div>
         </div>
       </section>
-      <!-- /contact-design -->
+      <!-- /testi-supported -->
+
+      <!-- ═══════════════════════════ APPLY CTA ════════════════════════════════ -->
+      <section class="testi-cta">
+        <div class="container">
+          <h2 class="testi-cta__title" data-aos="fade-up">
+            Be one of our successful clientele!
+          </h2>
+          <p class="testi-cta__text" data-aos="fade-up" data-aos-delay="150">
+            SMEF remains committed to supporting entrepreneurs and contributing
+            to the growth of a strong and sustainable SME sector in Oman..
+          </p>
+          <a href="#" class="testi-cta__btn" data-aos="fade-up" data-aos-delay="200">
+            Click to Apply
+          </a>
+        </div>
+      </section>
+      <!-- /testi-cta -->
     </main>
 
     <!-- FOOTER -->

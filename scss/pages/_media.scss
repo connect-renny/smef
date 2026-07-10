@@ -1,0 +1,252 @@
+// ═══════════════════════════════════════════════════════════════════════════
+// MEDIA PAGE — solid-red hero: brochure download (top-right) + heading + copy.
+// ═══════════════════════════════════════════════════════════════════════════
+.media-hero {
+  padding: clamp(40px, 4vw, 64px) 0 clamp(80px, 12vw, 190px);
+  background-color: var(--color-red);
+  color: var(--white);
+
+  // Row holding the brochure button, pushed to the right
+  &__top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: clamp(36px, 5vw, 80px);
+  }
+
+  // Outlined "Download SMEF E-Brochure" button
+  &__brochure {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    color: var(--white);
+    font-size: var(--fs-md);
+    line-height: 1.3;
+    text-decoration: none;
+    @include transEase(background-color, ease);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+    }
+
+    img {
+      width: 46px;
+      height: auto;
+      flex-shrink: 0;
+    }
+  }
+
+  // Centred content block (text stays left-aligned inside it)
+  &__content {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: var(--heading-font);
+    font-weight: var(--fw-medium);
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    line-height: 1.15;
+    margin: 0 0 clamp(28px, 3.5vw, 44px);
+  }
+
+  &__text {
+    margin: 0;
+    text-align: justify;
+    font-size: var(--fs-lg); // 20px
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 767px) {
+  .media-hero__text {
+    font-size: var(--fs-md);
+    text-align: left;
+  }
+
+  .media-hero__brochure {
+    padding: 12px 16px;
+    gap: 14px;
+    font-size: var(--fs-base);
+
+    img {
+      width: 38px;
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ARCHIVES — year-grouped event carousels (Swiper) with side navigation.
+// ═══════════════════════════════════════════════════════════════════════════
+.media-archive {
+  padding: clamp(40px, 5vw, 72px) 0 clamp(20px, 3vw, 32px);
+
+  // Constrain the archive content to a 1170px column
+  .container {
+    max-width: 1170px;
+  }
+
+  &__year {
+    color: var(--color-red);
+    font-family: var(--heading-font);
+    font-weight: var(--fw-medium);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.1;
+    margin: 0 0 clamp(24px, 3vw, 36px);
+  }
+
+  // Carousel wrapper — spans the full container; arrows overlap the edges
+  &__carousel {
+    position: relative;
+  }
+
+  &__divider {
+    border: 0;
+    border-top: 1px solid var(--dark-200);
+    margin: clamp(28px, 4vw, 44px) 0 clamp(28px, 5vw, 44px);
+    opacity: 1;
+  }
+
+  // Older-year links: 4-column grid with divider rules
+  &__more {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: clamp(28px, 4vw, 44px);
+
+    a {
+      display: block;
+      padding: clamp(14px, 1.8vw, 22px) clamp(14px, 2vw, 30px);
+      color: var(--color-red);
+      font-family: var(--heading-font);
+      font-weight: var(--fw-medium);
+      font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      border-right: 1px solid var(--dark-200);
+      @include transEase(color, ease);
+
+      &:hover {
+        color: #a3081a; // darker red
+      }
+
+      &:nth-child(4n) {
+        border-right: 0;
+      }
+      &:nth-child(n + 5) {
+        border-top: 1px solid var(--dark-200);
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .media-archive__more {
+    grid-template-columns: repeat(2, 1fr);
+
+    a {
+      &:nth-child(4n) {
+        border-right: 1px solid var(--dark-500);
+      }
+      &:nth-child(2n) {
+        border-right: 0;
+      }
+      &:nth-child(n + 3) {
+        border-top: 1px solid var(--dark-500);
+      }
+    }
+  }
+}
+
+// Variable-width slides: each slide is as wide as its image at a common height
+.media-archive__swiper .swiper-slide {
+  width: auto;
+}
+
+// Event card
+.archive-card {
+  &__media {
+    height: clamp(300px, 34vw, 480px);
+    overflow: hidden;
+    margin-bottom: 18px;
+
+    img {
+      display: block;
+      height: 100%;
+      width: auto;
+      max-width: none; // let landscape images be wider than the viewport-fit
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(100%); // colour restored on hover
+      @include transEase(filter, ease);
+    }
+  }
+
+  &:hover &__media img {
+    filter: grayscale(0%);
+  }
+
+  &__date {
+    color: var(--color-text-muted);
+    font-size: var(--fs-base);
+    line-height: 1.3;
+    margin: 0 0 4px;
+  }
+
+  &__name {
+    color: var(--color-red);
+    font-family: var(--heading-font);
+    font-weight: var(--fw-medium);
+    font-size: clamp(1.25rem, 1.8vw, 1.625rem);
+    line-height: 1.15;
+    margin: 0 0 12px;
+  }
+
+  &__desc {
+    color: var(--color-text-muted);
+    font-size: var(--fs-base);
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+// Prev/next arrows — circular controls overlapping the carousel edges
+.archive-nav {
+  position: absolute;
+  top: 34%; // roughly centred on the image
+  transform: translateY(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.14);
+  color: var(--color-text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  @include transEase(color, ease);
+
+  &:hover {
+    color: var(--color-red);
+    border-color: var(--color-red);
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  &--prev {
+    left: -8px;
+  }
+  &--next {
+    right: -8px;
+  }
+}

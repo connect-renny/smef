@@ -1,0 +1,122 @@
+// ═══════════════════════════════════════════════════════════════════════════
+// CONTACT PAGE — solid-green hero: heading, intro, and a 4-column info row
+// (logo · head office · branches · WhatsApp) separated by vertical rules.
+// ═══════════════════════════════════════════════════════════════════════════
+.contact-hero {
+  padding: clamp(48px, 6vw, 96px) 0;
+  background-color: var(--color-green);
+  color: var(--white);
+
+  &__title {
+    font-family: var(--heading-font);
+    font-weight: var(--fw-medium);
+    font-size: clamp(1.75rem, 3.4vw, 3rem);
+    line-height: 1.15;
+    text-align: center;
+    margin: 0 0 clamp(24px, 3vw, 40px);
+  }
+
+  &__intro {
+    max-width: 1000px;
+    margin: 0 auto clamp(40px, 6vw, 80px);
+    text-align: center;
+    font-size: var(--fs-lg); // 20px
+    line-height: 1.7;
+  }
+
+  // Four-column info row
+  &__grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+
+    > * {
+      padding: 0 clamp(26px, 3.2vw, 56px);
+    }
+
+    // Thin vertical rule between columns
+    > * + * {
+      border-left: 1px solid rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  // Logo + WhatsApp columns centre their contents vertically
+  &__brand,
+  &__whatsapp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__brand img {
+    width: clamp(110px, 9vw, 150px);
+    height: auto;
+  }
+
+  // Address / branch text
+  &__col,
+  &__branch {
+    font-size: var(--fs-md); // 18px
+    line-height: 1.65;
+    font-style: normal; // reset <address> italic
+  }
+
+  &__branch + &__branch {
+    margin-top: clamp(20px, 2.5vw, 32px);
+  }
+
+  strong {
+    display: inline-block;
+    font-weight: var(--fw-bold);
+    margin-bottom: 4px;
+  }
+
+  // WhatsApp call-out
+  &__whatsapp a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    text-decoration: none;
+    @include transEase(transform, ease);
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  &__wa-icon {
+    width: clamp(56px, 5vw, 76px);
+    height: auto;
+    margin-bottom: 12px;
+  }
+
+  &__wa-label {
+    font-size: var(--fs-md);
+    line-height: 1.2;
+  }
+
+  &__wa-number {
+    font-weight: var(--fw-bold);
+    font-size: clamp(1.25rem, 1.8vw, 1.625rem);
+    line-height: 1.2;
+  }
+}
+
+// ─── Contact responsive ──────────────────────────────────────────────────────
+@media (max-width: 991px) {
+  .contact-hero__grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: clamp(28px, 5vw, 44px);
+
+    > * {
+      padding: 0;
+    }
+    > * + * {
+      border-left: 0;
+    }
+  }
+}
