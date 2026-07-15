@@ -11,17 +11,15 @@
               <ul class="site-footer__column">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="about.php">About Us</a></li>
-                <li><a href="#">Vision &amp; Mission</a></li>
+                <li><a href="about.php#vision">Vision &amp; Mission</a></li>
               </ul>
               <ul class="site-footer__column">
-                <li><a href="#">Share Holders</a></li>
-                <li><a href="#">Board of Directors</a></li>
-                <li><a href="#">Management</a></li>
+                <li><a href="about.php#board">Board of Directors</a></li>
+                <li><a href="about.php#management">Management</a></li>
               </ul>
               <ul class="site-footer__column">
-                <li><a href="#">The Four Point Plan</a></li>
-                <li><a href="#">Special Initiatives</a></li>
-                <li><a href="#">News &amp; Articles</a></li>
+                <li><a href="products.php">The Four Point Plan</a></li>
+                <li><a href="media.php">News &amp; Articles</a></li>
               </ul>
               <ul class="site-footer__column">
                 <li><a href="#">Careers</a></li>
@@ -43,7 +41,7 @@
             <div class="site-footer__tools">
               <ul class="site-footer__social" aria-label="Social links">
                 <li>
-                  <a href="#" aria-label="Facebook"
+                  <a href="https://www.facebook.com/smefoman" target="_blank" aria-label="Facebook"
                     ><i class="bi bi-facebook"></i
                   ></a>
                 </li>
@@ -66,7 +64,7 @@
         </div>
       </div>
       <div class="site-footer__bottom">
-        Copyright &copy; 2017 SMEF . All rights reserved. Powered by ADventz
+        Copyright &copy; 2026 SMEF . All rights reserved. Powered by ADventz
       </div>
     </footer>
     <!-- /footer -->

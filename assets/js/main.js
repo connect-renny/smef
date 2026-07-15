@@ -29,105 +29,69 @@ function unlockScroll() {
   document.dispatchEvent(new CustomEvent("preloader:done"));
 }
 
-// Preloader
-window.addEventListener("load", function () {
+// Preloader — spinning ring + gold progress bar over the corniche backdrop.
+(function () {
   var loaderOverlay = document.querySelector(".loader-overlay");
-  var loaderPercent = document.getElementById("loader-percent");
-  var loaderLine = document.querySelector(".loader-line__fill");
-  var loaderShutters = document.querySelectorAll(".loader__shutter-panel");
-  var logoIcon = document.querySelector(".loader__logo-icon");
-  var loaderShade = document.querySelector(".loader__shade");
+  if (!loaderOverlay) return;
 
-  if (!loaderOverlay || !loaderPercent) return;
+  var loaderFill = loaderOverlay.querySelector(".loader-line__fill");
+  var progress = 0;
+  var dismissed = false;
+  var pageLoaded = false;
 
-  function buildLoaderDigit(targetDigit, index) {
-    var reel = document.createElement("span");
-    var strip = document.createElement("span");
-    var target = parseInt(targetDigit, 10);
-    var loops = 3 + index;
-    var finalStep = loops * 10 + target;
-
-    reel.className = "loader-percent-digit";
-    strip.className = "loader-percent-strip";
-    reel.dataset.finalStep = finalStep;
-
-    for (var i = 0; i <= finalStep; i++) {
-      var digit = document.createElement("span");
-      digit.textContent = i % 10;
-      strip.appendChild(digit);
+  // Creep the bar forward on a timer so it always feels alive, easing off as it
+  // nears the top. The real load event snaps it home.
+  var creep = setInterval(function () {
+    if (progress < 90) {
+      progress += (90 - progress) * 0.08 + 0.6;
+      setFill(progress);
     }
+  }, 90);
 
-    reel.appendChild(strip);
-    return reel;
+  function setFill(value) {
+    if (loaderFill) loaderFill.style.width = Math.min(value, 100) + "%";
   }
 
-  loaderPercent.innerHTML = "";
-  "100".split("").forEach(function (digit, index) {
-    loaderPercent.appendChild(buildLoaderDigit(digit, index));
+  function dismiss() {
+    if (dismissed) return;
+    dismissed = true;
+    clearInterval(creep);
+    setFill(100);
+
+    loaderOverlay.classList.add("is-hidden");
+    unlockScroll();
+
+    var done = function () {
+      loaderOverlay.style.display = "none";
+    };
+    loaderOverlay.addEventListener("transitionend", done, { once: true });
+    // Safety net in case transitionend never fires.
+    setTimeout(done, 800);
+  }
+
+  function finish() {
+    if (!pageLoaded) return;
+    // Let the bar reach 100% before the overlay fades.
+    setTimeout(dismiss, 350);
+  }
+
+  window.addEventListener("load", function () {
+    pageLoaded = true;
+    finish();
   });
 
-  var percentSymbol = document.createElement("span");
-  percentSymbol.className = "loader-percent-symbol";
-  percentSymbol.textContent = "%";
-  loaderPercent.appendChild(percentSymbol);
-
-  if (window.gsap) {
-    var loaderTimeline = gsap.timeline({
-      delay: 0.25,
-      onComplete: function () {
-        loaderOverlay.style.display = "none";
-        unlockScroll();
-      },
-    });
-
-    loaderTimeline
-      // Phase 1 — count-up + progress line (simultaneous)
-      .to(".loader-percent-strip", {
-        y: function (_index, strip) {
-          var reel = strip.closest(".loader-percent-digit");
-          return "-" + reel.dataset.finalStep + "em";
-        },
-        duration: 1.9,
-        ease: "power4.out",
-        stagger: 0.12,
-      })
-      .to(loaderLine, { width: "100%", duration: 1.8, ease: "power3.out" }, 0)
-      // Phase 2 — logo-icon slides up out of frame
-      .to(logoIcon, { y: "-150%", duration: 0.55, ease: "power3.in" })
-      // Phase 3 — shade height collapses from 100% → 0
-      .to(loaderShade, { height: 0, duration: 0.65, ease: "power3.inOut" })
-      // Phase 4 — hide progress line and counter
-      .to([".loader-line", ".loader-progress"], {
-        opacity: 0,
-        duration: 0.3,
-        ease: "power2.out",
-      })
-      // Phase 5 — shutters fold away
-      .to(loaderShutters, {
-        scaleY: 0,
-        transformOrigin: "top center",
-        duration: 0.85,
-        ease: "power4.inOut",
-        stagger: 0.09,
-      });
-  } else {
-    loaderPercent.textContent = "100%";
-    if (loaderLine) loaderLine.style.width = "100%";
-    setTimeout(function () {
-      loaderOverlay.style.display = "none";
-      unlockScroll();
-    }, 700);
+  // If the page is already loaded (cached), fire immediately.
+  if (document.readyState === "complete") {
+    pageLoaded = true;
+    finish();
   }
-});
 
-// Fallback — if the load event never fires, don't trap the user
-setTimeout(function () {
-  var loaderOverlay = document.querySelector(".loader-overlay");
-  if (loaderOverlay && loaderOverlay.style.display !== "none") {
-    loaderOverlay.style.display = "none";
-    unlockScroll();
-  }
-}, 8000);
+  // Fallback — never trap the user if the load event is missed.
+  setTimeout(function () {
+    pageLoaded = true;
+    dismiss();
+  }, 8000);
+})();
 
 // reveal__pic — image wipe + zoom on scroll into view
 if (window.gsap && window.ScrollTrigger) {

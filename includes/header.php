@@ -3,28 +3,16 @@
 ?>
 <?php if (isset($activePage) && $activePage === 'home'): ?>
     <!-- ═══════════════════════════ PRELOADER ══════════════════════════════════ -->
-    <div class="loader-overlay" aria-label="Loading page">
-      <div class="loader-shutter">
-        <div class="loader__shutter-panel"></div>
-        <div class="loader__shutter-panel"></div>
-        <div class="loader__shutter-panel"></div>
-        <div class="loader__shutter-panel"></div>
-        <div class="loader__shutter-panel"></div>
-        <div class="loader__shutter-panel"></div>
-        <div class="loader__shutter-panel"></div>
-      </div>
+    <div class="loader-overlay" aria-label="Loading page" role="status" aria-live="polite">
       <div class="loader">
-        <div class="loader__logo">
-          <div class="loader__shade"></div>
+        <div class="loader__ring">
           <div class="loader__logo-icon">
-            <img src="assets/images/loader.svg" alt="Loading" />
+            <img src="assets/images/loader.svg" alt="Inma" />
           </div>
         </div>
+        <div class="loader__label">Loading<span class="loader__dots"><span>.</span><span>.</span><span>.</span></span></div>
         <div class="loader-line">
           <div class="loader-line__fill"></div>
-        </div>
-        <div class="loader-progress">
-          <span id="loader-percent">000</span>
         </div>
       </div>
     </div>
@@ -83,10 +71,10 @@
                           >Entrepreneurial Development</a
                         >
                       </li>
-                      <li><a href="products.php#financing">Financing</a></li>
-                      <li><a href="products.php#nurturing">Nurturing</a></li>
+                      <li><a href="#">Financing</a></li>
+                      <li><a href="#">Nurturing</a></li>
                       <li>
-                        <a href="products.php#legitimizing">Legitimizing</a>
+                        <a href="#">Legitimizing</a>
                       </li>
                     </ul>
                   </li>
@@ -109,7 +97,7 @@
                 <!-- Social -->
                 <ul class="header__social">
                   <li>
-                    <a href="#" aria-label="Facebook"
+                    <a href="https://www.facebook.com/smefoman" target="_blank" aria-label="Facebook"
                       ><i class="bi bi-facebook"></i
                     ></a>
                   </li>
@@ -269,7 +257,7 @@
         </div>
         <ul class="header__social">
           <li>
-            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.facebook.com/smefoman" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
           </li>
           <li>
             <a href="#" aria-label="X (Twitter)"

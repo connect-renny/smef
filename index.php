@@ -33,7 +33,7 @@ include __DIR__ . "/includes/header.php";
             <p class="hero__subtitle">
               Empowering ideas through funding, development, and guidance
             </p>
-            <a href="#" class="btn-hero">
+            <a href="about.php" class="btn-hero">
               <span class="btn-hero__label">Learn More</span>
               <span class="btn-hero__icon">
                 <i class="bi bi-chevron-right"></i>
@@ -88,7 +88,7 @@ include __DIR__ . "/includes/header.php";
                     helping them expand, innovate, and achieve long-term
                     sustainability.
                   </p>
-                  <a href="#" class="btn-outline">
+                  <a href="products.php" class="btn-outline">
                     <span class="btn-outline__label">View Products</span>
                     <span class="btn-outline__icon">
                       <i class="bi bi-chevron-right"></i>
@@ -124,7 +124,7 @@ include __DIR__ . "/includes/header.php";
                     training programs, and ongoing support to help entrepreneurs
                     strengthen their operations and achieve sustainable growth.
                   </p>
-                  <a href="#" class="btn-outline">
+                  <a href="services.php" class="btn-outline">
                     <span class="btn-outline__label">View Services</span>
                     <span class="btn-outline__icon">
                       <i class="bi bi-chevron-right"></i>
@@ -166,7 +166,7 @@ include __DIR__ . "/includes/header.php";
               Mr. Name of Client Here<br />
               Business Owner - ArtyBakes Cake Shop
             </p>
-            <a href="#" class="btn-outline btn-outline--light">
+            <a href="testimonials.php" class="btn-outline btn-outline--light">
               <span class="btn-outline__label">Learn All Testimonials</span>
               <span class="btn-outline__icon">
                 <i class="bi bi-chevron-right"></i>
