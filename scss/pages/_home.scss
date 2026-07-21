@@ -288,6 +288,7 @@
 // ═══════════════════════════════════════════════════════════════════════════
 .featured {
   padding: clamp(32px, 4vw, 56px) 0 clamp(48px, 6vw, 80px);
+  overflow: hidden;
 
   &__row {
     --bs-gutter-x: 4rem; // ~64px column gap
