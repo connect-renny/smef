@@ -23,11 +23,10 @@ include __DIR__ . "/includes/header.php";
           <div class="products-hero__panel" aria-hidden="true"></div>
           <div class="products-hero__content">
             <h1 class="products-hero__title">
-              Financing solutions designed to support businesses at every stage
-              of growth
+              The<br />Right Financing<br />for the Right<br />Opportunity
             </h1>
           </div>
-        </div>
+        </div>        
       </section>
       <!-- /hero -->
 
@@ -35,145 +34,391 @@ include __DIR__ . "/includes/header.php";
       <section class="products-intro">
         <div class="container">
           <h2 class="products-intro__title" data-aos="fade-up">
-            SME Development Fund Products
+            Inma (SME Development Fund) Products
           </h2>
           <p
             class="products-intro__text"
             data-aos="fade-up"
             data-aos-delay="150"
           >
-            SMEF offers a range of financing products designed to support
-            entrepreneurs and small and medium enterprises across different
-            stages of their business journey. Each product is structured to
-            address specific business needs while promoting sustainable growth
-            and long-term success.
+            Inma (SME Development Fund) provides a comprehensive range of
+            financing solutions to support entrepreneurs, businesses, and
+            individuals at every stage of their journey.
           </p>
           <p
             class="products-intro__text"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <strong>SME Development Fund</strong> products are designed to
-            support businesses through the following key stages of development:
+            From business startup, expansion, and diversification to personal
+            financing needs, our flexible facilities are designed to help turn
+            ambitions into lasting success.
           </p>
         </div>
       </section>
       <!-- /products-intro -->
 
-      <!-- ═══════════════════════════ PRODUCT STAGES ═══════════════════════════ -->
-      <section class="products-stages">
-        <!-- Entrepreneurial Development -->
-        <article class="products-stage" data-aos="fade-up">
-          <div class="products-stage__media">
-            <div class="reveal__pic products-stage__pic">
-              <img
-                src="assets/images/product-entrepreneurial.jpg"
-                alt="Young entrepreneurs reviewing business material"
-              />
-            </div>
-          </div>
-          <div class="products-stage__body">
-            <h3 class="products-stage__title">
-              Entrepreneurial<br />Development
-            </h3>
-            <p class="products-stage__text">
-              Supporting early-stage entrepreneurs in developing viable business
-              ideas and building strong foundations.
-            </p>
-            <a
-              href="product-entrepreneurial-development.php"
-              class="products-stage__btn"
-            >
-              Learn More <i class="bi bi-arrow-right-circle"></i>
-            </a>
-          </div>
-        </article>
+      <!-- ═══════════════════════════ COMMERCIAL FINANCE ═══════════════════════ -->
+      <section class="products-category" aria-labelledby="commercial-finance">
+        <div class="products-category__band">
+          <h2 class="products-category__title" id="commercial-finance">
+            Commercial Finance
+          </h2>
+        </div>
 
-        <!-- Financing (featured / red) -->
-        <article
-          id="financing"
-          class="products-stage products-stage--reverse products-stage--featured"
-          data-aos="fade-up"
-        >
-          <div class="products-stage__media">
-            <div class="reveal__pic products-stage__pic">
-              <img
-                src="assets/images/product-financing.jpg"
-                alt="Florists arranging flowers in a small business"
-              />
+        <div class="products-stages">
+          <!-- Lease Finance (red, image right) -->
+          <article
+            id="lease-finance"
+            class="products-stage products-stage--reverse products-stage--featured"
+            data-aos="fade-up"
+          >
+            <div class="products-stage__media">
+              <div class="reveal__pic products-stage__pic">
+                <img
+                  src="assets/images/product-lease-finance.jpg"
+                  alt="SMEF advisors reviewing equipment being delivered to a café"
+                />
+              </div>
             </div>
-          </div>
-          <div class="products-stage__body">
-            <h3 class="products-stage__title">Financing</h3>
-            <p class="products-stage__text">
-              Providing structured financial support to help businesses start,
-              grow, and expand with confidence.
-            </p>
-            <a href="#" class="products-stage__btn">
-              Learn More <i class="bi bi-arrow-right-circle"></i>
-            </a>
-          </div>
-        </article>
+            <div class="products-stage__body">
+              <h3 class="products-stage__title">Lease<br />Finance</h3>
+              <p class="products-stage__text">
+                Acquire machinery, equipment, vehicles, Plant &amp; Machineries
+                or any other assets for your business need through our flexible
+                lease financing products.
+              </p>
+              <a href="#" class="products-stage__btn">
+                Learn More <i class="bi bi-arrow-right-circle"></i>
+              </a>
+            </div>
+          </article>
 
-        <!-- Nurturing -->
-        <article id="nurturing" class="products-stage" data-aos="fade-up">
-          <div class="products-stage__media">
-            <div class="reveal__pic products-stage__pic">
-              <img
-                src="assets/images/product-nurturing.jpg"
-                alt="Attendees at an SMEF business development session"
-              />
+          <!-- Sale & Lease Back (green, image left) -->
+          <article
+            id="sale-lease-back"
+            class="products-stage products-stage--green"
+            data-aos="fade-up"
+          >
+            <div class="products-stage__media">
+              <div class="reveal__pic products-stage__pic">
+                <img
+                  src="assets/images/product-sale-lease.jpg"
+                  alt="Engineers inspecting plant machinery on a factory floor"
+                />
+              </div>
             </div>
-          </div>
-          <div class="products-stage__body">
-            <h3 class="products-stage__title">Nurturing</h3>
-            <p class="products-stage__text">
-              Strengthening business capabilities through guidance, support, and
-              continuous development.
-            </p>
-            <a href="#" class="products-stage__btn">
-              Learn More <i class="bi bi-arrow-right-circle"></i>
-            </a>
-          </div>
-        </article>
+            <div class="products-stage__body">
+              <h3 class="products-stage__title">Sale &amp;<br />Lease Back</h3>
+              <p class="products-stage__text">
+                Unlock your already utilized capital for your existing business
+                by way of refinancing, allowing you to improve your cash flow
+                while continuing to use your assets.
+              </p>
+              <a href="#" class="products-stage__btn">
+                Learn More <i class="bi bi-arrow-right-circle"></i>
+              </a>
+              <div class="product-modal-full" hidden>
+                <p>
+                  Unlock the value of your existing business assets without
+                  disrupting your operations. Through our Sale &amp; Lease Back
+                  facility, you can refinance assets you already own, converting
+                  them into immediate working capital while continuing to use
+                  them in your day-to-day business.
+                </p>
+                <p>
+                  This solution helps improve cash flow, strengthen liquidity,
+                  and provide the financial flexibility needed to support
+                  business growth, expansion, or new investment opportunities.
+                </p>
+                <p>
+                  By releasing capital tied up in fixed assets, your business
+                  gains the freedom to invest where it matters most — all while
+                  retaining full use of the assets it depends on.
+                </p>
+              </div>
+            </div>
+          </article>
 
-        <!-- Legitimizing -->
-        <article
-          id="legitimizing"
-          class="products-stage products-stage--reverse"
-          data-aos="fade-up"
-        >
-          <div class="products-stage__media">
-            <div class="reveal__pic products-stage__pic">
-              <img
-                src="assets/images/product-legitimizing.jpg"
-                alt="Business owners at a formalization event"
-              />
+          <!-- Working Capital Facilities (gray, image right) -->
+          <article
+            id="working-capital"
+            class="products-stage products-stage--reverse"
+            data-aos="fade-up"
+          >
+            <div class="products-stage__media">
+              <div class="reveal__pic products-stage__pic">
+                <img
+                  src="assets/images/product-working-capital.jpg"
+                  alt="Boutique owner managing invoices and cash flow"
+                />
+              </div>
             </div>
-          </div>
-          <div class="products-stage__body">
-            <h3 class="products-stage__title">Legitimizing</h3>
-            <p class="products-stage__text">
-              Supporting businesses in formalizing operations and aligning with
-              regulatory and operational requirements.
-            </p>
-            <a href="#" class="products-stage__btn">
-              Learn More <i class="bi bi-arrow-right-circle"></i>
-            </a>
-          </div>
-        </article>
+            <div class="products-stage__body">
+              <h3 class="products-stage__title">Working Capital<br />Facilities</h3>
+              <p class="products-stage__text">
+                Access short-term &amp; long term financing to support your
+                day-to-day business operations, manage cash flow, and meet your
+                operational expenses.
+              </p>
+              <a href="#" class="products-stage__btn">
+                Learn More <i class="bi bi-arrow-right-circle"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Bill Discounting (red, image left) -->
+          <article
+            id="bill-discounting"
+            class="products-stage products-stage--featured"
+            data-aos="fade-up"
+          >
+            <div class="products-stage__media">
+              <div class="reveal__pic products-stage__pic">
+                <img
+                  src="assets/images/product-bill-discounting.jpg"
+                  alt="Bank officer assisting a customer with invoice financing"
+                />
+              </div>
+            </div>
+            <div class="products-stage__body">
+              <h3 class="products-stage__title">Bill<br />Discounting</h3>
+              <p class="products-stage__text">
+                Improve your cash flow by receiving immediate financing against
+                approved invoices or receivables instead of waiting for your
+                customer payments.
+              </p>
+              <a href="#" class="products-stage__btn">
+                Learn More <i class="bi bi-arrow-right-circle"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Murabaha (green, image right) -->
+          <article
+            id="murabaha"
+            class="products-stage products-stage--reverse products-stage--green"
+            data-aos="fade-up"
+          >
+            <div class="products-stage__media">
+              <div class="reveal__pic products-stage__pic">
+                <img
+                  src="assets/images/product-murabaha.jpg"
+                  alt="Business owner shaking hands with an advisor after signing"
+                />
+              </div>
+            </div>
+            <div class="products-stage__body">
+              <h3 class="products-stage__title">Murabaha</h3>
+              <p class="products-stage__text">
+                A Shari'ah-compliant financing solution that enables your
+                businesses to acquire assets through a transparent financing
+                arrangement.
+              </p>
+              <a href="#" class="products-stage__btn">
+                Learn More <i class="bi bi-arrow-right-circle"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Non-Funded Facilities (plain white, image left) -->
+          <article
+            id="non-funded"
+            class="products-stage products-stage--plain"
+            data-aos="fade-up"
+          >
+            <div class="products-stage__media">
+              <div class="reveal__pic products-stage__pic">
+                <img
+                  src="assets/images/product-non-funded.jpg"
+                  alt="Fleet operator discussing logistics beside delivery vans"
+                />
+              </div>
+            </div>
+            <div class="products-stage__body">
+              <h3 class="products-stage__title">Non-Funded<br />Facilities</h3>
+              <p class="products-stage__text">
+                Support your business transactions and contractual commitments
+                with the help of various guarantees and non-funded facilities of
+                the bank.
+              </p>
+            </div>
+          </article>
+        </div>
       </section>
-      <!-- /products-stages -->
+      <!-- /products-category -->
+
+      <!-- ═══════════════════ NON-FUNDED FACILITY TYPES (slider) ════════════════ -->
+      <section class="products-guarantees" data-modal-category="Commercial Finance">
+        <div class="products-guarantees__inner">
+          <div class="swiper guarantees-swiper">
+            <div class="swiper-wrapper">
+              <!-- Bank Guarantee -->
+              <div class="swiper-slide">
+                <article class="guarantee-card">
+                  <div class="guarantee-card__media">
+                    <img
+                      src="assets/images/product-sm-bank-gurantee.jpg"
+                      alt="Site engineer directing a road roller operator"
+                    />
+                  </div>
+                  <div class="guarantee-card__body">
+                    <h3 class="guarantee-card__title">Bank<br />Guarantee</h3>
+                    <p class="guarantee-card__text">
+                      providing financial guaranty to third parties that
+                      contractual or financial obligations will be fulfilled
+                    </p>
+                    <a href="#" class="guarantee-card__btn">
+                      Learn More <i class="bi bi-arrow-right-circle"></i>
+                    </a>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Letter of Credit Facility -->
+              <div class="swiper-slide">
+                <article class="guarantee-card">
+                  <div class="guarantee-card__media">
+                    <img
+                      src="assets/images/product-sm-letter-credit.jpg"
+                      alt="Traders shaking hands at a port with a cargo ship behind"
+                    />
+                  </div>
+                  <div class="guarantee-card__body">
+                    <h3 class="guarantee-card__title">
+                      Letter of<br />Credit Facility
+                    </h3>
+                    <p class="guarantee-card__text">
+                      facilitating domestic and international trade by providing
+                      secure payment arrangements between buyers and suppliers.
+                    </p>
+                    <a href="#" class="guarantee-card__btn">
+                      Learn More <i class="bi bi-arrow-right-circle"></i>
+                    </a>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Tender Bonds -->
+              <div class="swiper-slide">
+                <article class="guarantee-card">
+                  <div class="guarantee-card__media">
+                    <img
+                      src="assets/images/product-sm-tender-bonds.jpg"
+                      alt="Engineers reviewing plans at a construction site"
+                    />
+                  </div>
+                  <div class="guarantee-card__body">
+                    <h3 class="guarantee-card__title">Tender<br />Bonds</h3>
+                    <p class="guarantee-card__text">
+                      supporting participation in public and private sector
+                      tenders by providing the required bid security
+                    </p>
+                    <a href="#" class="guarantee-card__btn">
+                      Learn More <i class="bi bi-arrow-right-circle"></i>
+                    </a>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Advance Payment Guarantees -->
+              <div class="swiper-slide">
+                <article class="guarantee-card">
+                  <div class="guarantee-card__media">
+                    <img
+                      src="assets/images/product-sm-advance-payment.jpg"
+                      alt="Workers loading equipment while an owner supervises"
+                    />
+                  </div>
+                  <div class="guarantee-card__body">
+                    <h3 class="guarantee-card__title">
+                      Advance<br />Payment Guarantees
+                    </h3>
+                    <p class="guarantee-card__text">
+                      providing assurance to project owners that advance payments
+                      made to contractors are properly secured.
+                    </p>
+                    <a href="#" class="guarantee-card__btn">
+                      Learn More <i class="bi bi-arrow-right-circle"></i>
+                    </a>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /products-guarantees -->
+
+      <!-- ═══════════════════════════ RETAIL FINANCE ════════════════════════════ -->
+      <section class="products-category" aria-labelledby="retail-finance">
+        <div class="products-category__band">
+          <h2 class="products-category__title" id="retail-finance">
+            Retail Finance
+          </h2>
+        </div>
+
+        <div class="products-stages">
+          <!-- Auto Finance (red, image right) -->
+          <article
+            id="auto-finance"
+            class="products-stage products-stage--reverse products-stage--featured"
+            data-aos="fade-up"
+          >
+            <div class="products-stage__media">
+              <div class="reveal__pic products-stage__pic">
+                <img
+                  src="assets/images/product-auto-finance.jpg"
+                  alt="Salesman handing car keys to a customer at a dealership"
+                />
+              </div>
+            </div>
+            <div class="products-stage__body">
+              <h3 class="products-stage__title">Auto<br />Finance</h3>
+              <p class="products-stage__text">
+                Financing your new &amp; used vehicles, providing flexible
+                financing for personal, commercial fleets, and electric vehicles
+                (EVs) for Companies and Individuals with easy installment
+                options.
+              </p>
+              <a href="#" class="products-stage__btn">
+                Learn More <i class="bi bi-arrow-right-circle"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Consumer Loans (green, image left) -->
+          <article
+            id="consumer-loans"
+            class="products-stage products-stage--green"
+            data-aos="fade-up"
+          >
+            <div class="products-stage__media">
+              <div class="reveal__pic products-stage__pic">
+                <img
+                  src="assets/images/product-consumer-loans.jpg"
+                  alt="Couple shopping for home appliances in a showroom"
+                />
+              </div>
+            </div>
+            <div class="products-stage__body">
+              <h3 class="products-stage__title">Consumer<br />Loans</h3>
+              <p class="products-stage__text">
+                Providing consumer &amp; lifestyle financing which includes
+                electronic items, furniture etc. or any items to enhance your
+                lifestyle with easy installment options.
+              </p>
+              <a href="#" class="products-stage__btn">
+                Learn More <i class="bi bi-arrow-right-circle"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- /products-category -->
 
       <!-- ═══════════════════ ELIGIBILITY & APPLICATION PROCESS ════════════════ -->
       <section class="products-apply">
-        <div class="products-apply__banner">
-          <img
-            src="assets/images/eligibility-criteria.jpg"
-            alt="Two Omani businessmen shaking hands in an office"
-          />
-        </div>
-
         <div class="container">
           <div class="products-apply__body">
             <!-- Eligibility Criteria -->
@@ -192,7 +437,7 @@ include __DIR__ . "/includes/header.php";
                   Sultanate of Oman
                 </li>
                 <li>
-                  Operate within the small and medium enterprise (SME) sector
+                  Be a part of a small or medium enterprise or corporate sector
                 </li>
                 <li>
                   Possess a valid business registration and relevant licenses
@@ -308,5 +553,43 @@ include __DIR__ . "/includes/header.php";
       <!-- /contact-design -->
     </main>
 
-    
+    <!-- ═══════════════════════════ PRODUCT MODAL ════════════════════════════ -->
+    <div
+      class="product-modal"
+      id="productModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="productModalTitle"
+      aria-hidden="true"
+    >
+      <div class="product-modal__backdrop" data-modal-close></div>
+
+      <div class="product-modal__dialog" role="document">
+        <button
+          class="product-modal__close"
+          type="button"
+          data-modal-close
+          aria-label="Close"
+        >
+          <span class="product-modal__close-icon"><i class="bi bi-x-lg"></i></span>
+          <span class="product-modal__close-label">Close</span>
+        </button>
+
+        <div class="product-modal__media">
+          <img
+            class="product-modal__img"
+            src="assets/images/product-modal-pic.jpg"
+            alt=""
+          />
+        </div>
+
+        <div class="product-modal__content">
+          <p class="product-modal__breadcrumb"></p>
+          <h2 class="product-modal__title" id="productModalTitle"></h2>
+          <div class="product-modal__body"></div>
+        </div>
+      </div>
+    </div>
+    <!-- /product-modal -->
+
 <?php include __DIR__ . "/includes/footer.php"; ?>

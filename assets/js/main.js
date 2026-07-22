@@ -279,6 +279,21 @@ const newsSwiper = new Swiper(".news-swiper", {
   },
 });
 
+// Non-funded facility types slider (products page)
+if (document.querySelector(".guarantees-swiper")) {
+  new Swiper(".guarantees-swiper", {
+    slidesPerView: 1.15,
+    spaceBetween: 20,
+    grabCursor: true,
+    speed: 700,
+    breakpoints: {
+      576: { slidesPerView: 2, spaceBetween: 24 },
+      992: { slidesPerView: 3, spaceBetween: 32 },
+      1300: { slidesPerView: 4, spaceBetween: 40 },
+    },
+  });
+}
+
 // ─── Hero growth arrows ──────────────────────────────────────────────────────
 // Three red arrows (red line.svg) sweep into the hero once the preloader has
 // finished, then rest in place.
@@ -662,5 +677,92 @@ const newsSwiper = new Swiper(".news-swiper", {
     spaceBetween: 0,
     speed: 2000, // slower, smoother slide
     thumbs: { swiper: thumbs },
+  });
+})();
+
+// ─── Product modal ───────────────────────────────────────────────────────────
+// "Learn More" on any product row / guarantee card opens a modal populated from
+// that product’s image, title and category. A hidden .product-modal-full block
+// inside the article supplies the long copy; otherwise the short blurb is used.
+(function () {
+  var modal = document.getElementById("productModal");
+  if (!modal) return;
+
+  var imgEl = modal.querySelector(".product-modal__img");
+  var crumbEl = modal.querySelector(".product-modal__breadcrumb");
+  var titleEl = modal.querySelector(".product-modal__title");
+  var bodyEl = modal.querySelector(".product-modal__body");
+  var lastTrigger = null;
+
+  function openModal(btn) {
+    var article = btn.closest("article");
+    if (!article) return;
+
+    var title = article.querySelector(
+      ".products-stage__title, .guarantee-card__title"
+    );
+    var full = article.querySelector(".product-modal-full");
+    var text = article.querySelector(
+      ".products-stage__text, .guarantee-card__text"
+    );
+
+    // Category → breadcrumb "Products | <Category> |"
+    var category = "";
+    var catSection = btn.closest(".products-category");
+    if (catSection) {
+      var catTitle = catSection.querySelector(".products-category__title");
+      category = catTitle ? catTitle.textContent.trim() : "";
+    } else {
+      var tagged = btn.closest("[data-modal-category]");
+      if (tagged) category = tagged.getAttribute("data-modal-category");
+    }
+
+    // Image is a shared placeholder for now (set in the markup); alt tracks title
+    imgEl.alt = title ? title.textContent.trim() : "";
+    crumbEl.innerHTML =
+      "Products" + (category ? " &nbsp;|&nbsp; " + category : "") + " &nbsp;|";
+    titleEl.innerHTML = title ? title.innerHTML : "";
+    bodyEl.innerHTML = full
+      ? full.innerHTML
+      : text
+      ? "<p>" + text.innerHTML + "</p>"
+      : "";
+    bodyEl.scrollTop = 0;
+
+    lastTrigger = btn;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("product-modal-open");
+    if (typeof lenis !== "undefined" && lenis.stop) lenis.stop();
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("product-modal-open");
+    if (typeof lenis !== "undefined" && lenis.start) lenis.start();
+    if (lastTrigger) {
+      lastTrigger.focus();
+      lastTrigger = null;
+    }
+  }
+
+  // Delegate clicks on every "Learn More" trigger
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest(".products-stage__btn, .guarantee-card__btn");
+    if (btn) {
+      e.preventDefault();
+      openModal(btn);
+      return;
+    }
+    if (e.target.closest("[data-modal-close]")) {
+      e.preventDefault();
+      closeModal();
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
   });
 })();
