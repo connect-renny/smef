@@ -9,14 +9,6 @@ include __DIR__ . "/includes/header.php";
       <section class="products-hero">
         <div class="products-hero__bg">
           <img src="assets/images/hero-products.jpg" alt="" />
-          <!-- Full-colour copy revealed in a spotlight around the cursor
-               (mask driven from main.js) -->
-          <img
-            src="assets/images/hero-products.jpg"
-            alt=""
-            class="products-hero__bg-color"
-            aria-hidden="true"
-          />
         </div>
 
         <div class="products-hero__inner">

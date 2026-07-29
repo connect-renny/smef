@@ -60,23 +60,8 @@
                   <li class="nav-main__item<?= ($activePage === 'about') ? ' active' : '' ?>">
                     <a href="about.php" class="nav-main__link">About Us</a>
                   </li>
-                  <li class="nav-main__item nav-main__item--dropdown<?= ($activePage === 'products' || $activePage === 'product-detail') ? ' active' : '' ?>">
-                    <a href="products.php" class="nav-main__link"
-                      >SMEF Products
-                      <i class="bi bi-chevron-down nav-main__caret"></i
-                    ></a>
-                    <ul class="nav-main__submenu">
-                      <li>
-                        <a href="product-entrepreneurial-development.php"
-                          >Entrepreneurial Development</a
-                        >
-                      </li>
-                      <li><a href="#">Financing</a></li>
-                      <li><a href="#">Nurturing</a></li>
-                      <li>
-                        <a href="#">Legitimizing</a>
-                      </li>
-                    </ul>
+                  <li class="nav-main__item<?= ($activePage === 'products' || $activePage === 'product-detail') ? ' active' : '' ?>">
+                    <a href="products.php" class="nav-main__link">SMEF Products</a>
                   </li>
                   <li class="nav-main__item<?= ($activePage === 'services') ? ' active' : '' ?>">
                     <a href="services.php" class="nav-main__link">SMEF Services</a>
@@ -183,42 +168,8 @@
         <li class="mobile-drawer__item<?= ($activePage === 'about') ? ' active' : '' ?>">
           <a href="about.php" class="mobile-drawer__link">About Us</a>
         </li>
-        <li class="mobile-drawer__item mobile-drawer__item--dropdown<?= ($activePage === 'products' || $activePage === 'product-detail') ? ' active' : '' ?>">
-          <div class="mobile-drawer__row">
-            <a href="products.php" class="mobile-drawer__link">SMEF Products</a>
-            <button
-              class="mobile-drawer__toggle"
-              type="button"
-              aria-label="Toggle SMEF Products submenu"
-              aria-expanded="false"
-            >
-              <i class="bi bi-chevron-down"></i>
-            </button>
-          </div>
-          <ul class="mobile-drawer__submenu">
-            <li>
-              <a
-                href="product-entrepreneurial-development.php"
-                class="mobile-drawer__sublink"
-                >Entrepreneurial Development</a
-              >
-            </li>
-            <li>
-              <a href="products.php#financing" class="mobile-drawer__sublink"
-                >Financing</a
-              >
-            </li>
-            <li>
-              <a href="products.php#nurturing" class="mobile-drawer__sublink"
-                >Nurturing</a
-              >
-            </li>
-            <li>
-              <a href="products.php#legitimizing" class="mobile-drawer__sublink"
-                >Legitimizing</a
-              >
-            </li>
-          </ul>
+        <li class="mobile-drawer__item<?= ($activePage === 'products' || $activePage === 'product-detail') ? ' active' : '' ?>">
+          <a href="products.php" class="mobile-drawer__link">SMEF Products</a>
         </li>
         <li class="mobile-drawer__item<?= ($activePage === 'services') ? ' active' : '' ?>">
           <a href="services.php" class="mobile-drawer__link">SMEF Services</a>

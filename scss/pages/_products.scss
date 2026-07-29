@@ -18,7 +18,7 @@
   height: clamp(376px, 42vw, 550px);
   overflow: hidden;
 
-  // Full-bleed grayscale background
+  // Full-bleed background — grayscale by default, full colour on hover
   &__bg {
     position: absolute;
     inset: 0;
@@ -30,27 +30,12 @@
       object-fit: cover;
       object-position: center;
       filter: grayscale(100%); // black & white hero photo
+      @include transEase(filter, ease);
     }
+  }
 
-    // Full-colour copy revealed through a soft spotlight that follows the
-    // cursor (--spot-* vars driven from main.js)
-    img.products-hero__bg-color {
-      position: absolute;
-      top: 0;
-      left: 0;
-      filter: none;
-      pointer-events: none;
-      -webkit-mask-image: radial-gradient(
-        circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%),
-        #000 55%,
-        transparent 100%
-      );
-      mask-image: radial-gradient(
-        circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%),
-        #000 55%,
-        transparent 100%
-      );
-    }
+  &:hover &__bg img {
+    filter: grayscale(0%);
   }
 
   &__inner {
@@ -476,7 +461,14 @@
     flex-direction: column;
     background-color: #c2c2c2;
     color: #fff;
-    padding: clamp(22px, 2vw, 32px) clamp(20px, 1.8vw, 32px) clamp(24px, 2.4vw, 36px);
+    padding: clamp(22px, 2vw, 32px) clamp(20px, 1.8vw, 32px)
+      clamp(24px, 2.4vw, 36px);
+    @include transEase(background-color, ease);
+  }
+
+  // Hover — gray body warms to a brand colour (alternating red / green)
+  &:hover &__body {
+    background-color: var(--color-red);
   }
 
   &__title {
@@ -518,6 +510,14 @@
       color: #fff;
     }
   }
+}
+
+// Alternate the hover colour — even cards go green instead of red
+.guarantees-swiper
+  .swiper-slide:nth-child(even)
+  .guarantee-card:hover
+  .guarantee-card__body {
+  background-color: var(--color-green);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -619,7 +619,8 @@
 
   visibility: hidden;
   opacity: 0;
-  transition: opacity var(--transition-duration) ease,
+  transition:
+    opacity var(--transition-duration) ease,
     visibility var(--transition-duration) ease;
 
   &.is-open {
@@ -710,10 +711,11 @@
   &__content {
     flex: 1 1 45%;
     min-width: 0;
+    min-height: 0; // let __body scroll instead of overflowing (esp. mobile column)
     display: flex;
     flex-direction: column;
-    padding: clamp(36px, 3.4vw, 68px) clamp(28px, 2.6vw, 52px) clamp(36px, 3.4vw, 68px)
-      clamp(32px, 3.4vw, 64px);
+    padding: clamp(36px, 3.4vw, 68px) clamp(28px, 2.6vw, 52px)
+      clamp(36px, 3.4vw, 68px) clamp(32px, 3.4vw, 64px);
   }
 
   &__breadcrumb {
@@ -774,7 +776,7 @@ body.product-modal-open {
   overflow: hidden;
 }
 
-// ─── Modal responsive — stack image over content ────────────────────────────
+// ─── Modal responsive — drop the image, content fills the dialog ────────────
 @media (max-width: 860px) {
   .product-modal__dialog {
     flex-direction: column;
@@ -782,11 +784,26 @@ body.product-modal-open {
   }
 
   .product-modal__media {
-    flex: 0 0 34%;
+    display: none; // hide the pop image on mobile
   }
 
   .product-modal__content {
     flex: 1 1 auto;
+    padding-top: 64px; // clear the close button above the breadcrumb
+  }
+
+  // Slim the close button to just the icon so it never sits over the breadcrumb
+  .product-modal__close {
+    top: 16px;
+    right: 16px;
+  }
+
+  .product-modal__close-label {
+    display: none;
+  }
+
+  .product-modal__breadcrumb {
+    padding-right: 44px;
   }
 
   .product-modal__body p {

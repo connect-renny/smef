@@ -17,7 +17,7 @@
   height: clamp(376px, 42vw, 550px);
   overflow: hidden;
 
-  // Full-bleed grayscale background
+  // Full-bleed background — grayscale by default, full colour on hover
   &__bg {
     position: absolute;
     inset: 0;
@@ -29,27 +29,12 @@
       object-fit: cover;
       object-position: center;
       filter: grayscale(100%); // black & white hero photo
+      @include transEase(filter, ease);
     }
+  }
 
-    // Full-colour copy revealed through a soft spotlight that follows the
-    // cursor (--spot-* vars driven from main.js)
-    img.about-hero__bg-color {
-      position: absolute;
-      top: 0;
-      left: 0;
-      filter: none;
-      pointer-events: none;
-      -webkit-mask-image: radial-gradient(
-        circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%),
-        #000 55%,
-        transparent 100%
-      );
-      mask-image: radial-gradient(
-        circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%),
-        #000 55%,
-        transparent 100%
-      );
-    }
+  &:hover &__bg img {
+    filter: grayscale(0%);
   }
 
   &__inner {

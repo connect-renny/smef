@@ -6081,15 +6081,10 @@ html {
   object-fit: cover;
   object-position: center;
   filter: grayscale(100%);
+  transition: filter var(--transition-duration) ease;
 }
-.hero__bg img.hero__bg-color {
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: none;
-  pointer-events: none;
-  -webkit-mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
-  mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
+.hero:hover .hero__bg img {
+  filter: grayscale(0%);
 }
 .hero__arrows {
   position: absolute;
@@ -6384,15 +6379,10 @@ html {
   object-fit: cover;
   object-position: center;
   filter: grayscale(100%);
+  transition: filter var(--transition-duration) ease;
 }
-.success__bg img.success__bg-color {
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: none;
-  pointer-events: none;
-  -webkit-mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
-  mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
+.success:hover .success__bg img {
+  filter: grayscale(0%);
 }
 .success .container {
   position: static;
@@ -6879,15 +6869,10 @@ html {
   object-fit: cover;
   object-position: center;
   filter: grayscale(100%);
+  transition: filter var(--transition-duration) ease;
 }
-.about-hero__bg img.about-hero__bg-color {
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: none;
-  pointer-events: none;
-  -webkit-mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
-  mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
+.about-hero:hover .about-hero__bg img {
+  filter: grayscale(0%);
 }
 .about-hero__inner {
   position: relative;
@@ -7304,15 +7289,10 @@ html {
   object-fit: cover;
   object-position: center;
   filter: grayscale(100%);
+  transition: filter var(--transition-duration) ease;
 }
-.products-hero__bg img.products-hero__bg-color {
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: none;
-  pointer-events: none;
-  -webkit-mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
-  mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
+.products-hero:hover .products-hero__bg img {
+  filter: grayscale(0%);
 }
 .products-hero__inner {
   position: relative;
@@ -7642,6 +7622,10 @@ html {
   background-color: #c2c2c2;
   color: #fff;
   padding: clamp(22px, 2vw, 32px) clamp(20px, 1.8vw, 32px) clamp(24px, 2.4vw, 36px);
+  transition: background-color var(--transition-duration) ease;
+}
+.guarantee-card:hover .guarantee-card__body {
+  background-color: var(--color-red);
 }
 .guarantee-card__title {
   font-family: var(--heading-font);
@@ -7676,6 +7660,10 @@ html {
 .guarantee-card__btn:hover {
   background-color: rgba(255, 255, 255, 0.16);
   color: #fff;
+}
+
+.guarantees-swiper .swiper-slide:nth-child(even) .guarantee-card:hover .guarantee-card__body {
+  background-color: var(--color-green);
 }
 
 .products-apply {
@@ -7833,6 +7821,7 @@ html {
 .product-modal__content {
   flex: 1 1 45%;
   min-width: 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   padding: clamp(36px, 3.4vw, 68px) clamp(28px, 2.6vw, 52px) clamp(36px, 3.4vw, 68px) clamp(32px, 3.4vw, 64px);
@@ -7891,10 +7880,21 @@ body.product-modal-open {
     height: 90vh;
   }
   .product-modal__media {
-    flex: 0 0 34%;
+    display: none;
   }
   .product-modal__content {
     flex: 1 1 auto;
+    padding-top: 64px;
+  }
+  .product-modal__close {
+    top: 16px;
+    right: 16px;
+  }
+  .product-modal__close-label {
+    display: none;
+  }
+  .product-modal__breadcrumb {
+    padding-right: 44px;
   }
   .product-modal__body p {
     text-align: left;
@@ -8041,15 +8041,10 @@ body.product-modal-open {
   object-fit: cover;
   object-position: center;
   filter: grayscale(100%);
+  transition: filter var(--transition-duration) ease;
 }
-.services-hero__bg img.services-hero__bg-color {
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: none;
-  pointer-events: none;
-  -webkit-mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
-  mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
+.services-hero:hover .services-hero__bg img {
+  filter: grayscale(0%);
 }
 .services-hero__inner {
   position: relative;
@@ -8612,15 +8607,10 @@ body.product-modal-open {
   object-fit: cover;
   object-position: center;
   filter: grayscale(100%);
+  transition: filter var(--transition-duration) ease;
 }
-.testimonials-hero__bg img.testimonials-hero__bg-color {
-  position: absolute;
-  top: 0;
-  left: 0;
-  filter: none;
-  pointer-events: none;
-  -webkit-mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
-  mask-image: radial-gradient(circle var(--spot-r, 0px) at var(--spot-x, 50%) var(--spot-y, 50%), #000 55%, transparent 100%);
+.testimonials-hero:hover .testimonials-hero__bg img {
+  filter: grayscale(0%);
 }
 .testimonials-hero__inner {
   position: relative;
@@ -9081,4 +9071,4 @@ body.product-modal-open {
 
 .fw-800 {
   font-weight: 800 !important;
-}
+}/*# sourceMappingURL=style.css.map */

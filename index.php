@@ -9,14 +9,6 @@ include __DIR__ . "/includes/header.php";
       <section class="hero">
         <div class="hero__bg">
           <img src="assets/images/hero-slider-01.jpg" alt="" />
-          <!-- Full-colour copy revealed in a spotlight around the cursor
-               (mask driven from main.js) -->
-          <img
-            src="assets/images/hero-slider-01.jpg"
-            alt=""
-            class="hero__bg-color"
-            aria-hidden="true"
-          />
         </div>
 
         <!-- Growth arrows — animated in after the preloader (see main.js) -->
@@ -144,14 +136,6 @@ include __DIR__ . "/includes/header.php";
           <img
             src="assets/images/featured-success.jpg"
             alt="Business owner using a tablet in his bakery"
-          />
-          <!-- Full-colour copy revealed in a spotlight around the cursor
-               (mask driven from main.js) -->
-          <img
-            src="assets/images/featured-success.jpg"
-            alt=""
-            class="success__bg-color"
-            aria-hidden="true"
           />
         </div>
         <div class="container">
