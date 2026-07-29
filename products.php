@@ -64,6 +64,8 @@ include __DIR__ . "/includes/header.php";
             id="lease-finance"
             class="products-stage products-stage--reverse products-stage--featured"
             data-aos="fade-up"
+            data-modal-img="assets/images/modal-lease-finance.jpg"
+            data-modal-accent="red"
           >
             <div class="products-stage__media">
               <div class="reveal__pic products-stage__pic">
@@ -83,6 +85,19 @@ include __DIR__ . "/includes/header.php";
               <a href="#" class="products-stage__btn">
                 Learn More <i class="bi bi-arrow-right-circle"></i>
               </a>
+              <div class="product-modal-full" hidden>
+                <p>
+                  Buy your plant &amp; machinery, heavy equipment, vehicles or
+                  other assets for your business with the help of our flexible
+                  Lease Finance options. Flexible repayment terms allow you to
+                  manage your cash flow more effectively throughout the
+                  financing period. This facility is ideal for businesses
+                  looking for expansion, diversification, etc., while
+                  maintaining financial liquidity. Whether you are establishing
+                  a new venture or upgrading existing equipment, INMA's flexible
+                  Lease Finance provides tailor-made financing solutions.
+                </p>
+              </div>
             </div>
           </article>
 
@@ -91,6 +106,8 @@ include __DIR__ . "/includes/header.php";
             id="sale-lease-back"
             class="products-stage products-stage--green"
             data-aos="fade-up"
+            data-modal-img="assets/images/modal-sale-lease.jpg"
+            data-modal-accent="green"
           >
             <div class="products-stage__media">
               <div class="reveal__pic products-stage__pic">
@@ -112,21 +129,18 @@ include __DIR__ . "/includes/header.php";
               </a>
               <div class="product-modal-full" hidden>
                 <p>
-                  Unlock the value of your existing business assets without
-                  disrupting your operations. Through our Sale &amp; Lease Back
-                  facility, you can refinance assets you already own, converting
-                  them into immediate working capital while continuing to use
-                  them in your day-to-day business.
-                </p>
-                <p>
-                  This solution helps improve cash flow, strengthen liquidity,
-                  and provide the financial flexibility needed to support
-                  business growth, expansion, or new investment opportunities.
-                </p>
-                <p>
-                  By releasing capital tied up in fixed assets, your business
-                  gains the freedom to invest where it matters most — all while
-                  retaining full use of the assets it depends on.
+                  Unlock the value of your existing investments in business
+                  assets without interrupting your operations. Through our Sale
+                  &amp; Lease Back facility, you can refinance your owned
+                  assets, converting them into immediate working capital while
+                  continuing to use them in your business. This solution helps
+                  improve liquidity and strengthens your cash flow without
+                  sacrificing productivity. The released capital can be
+                  reinvested into your business operations for growth,
+                  expansion, new opportunities, operational improvements, etc.
+                  It is an effective financing option for businesses seeking
+                  greater financial flexibility while maximizing the value of
+                  their existing assets.
                 </p>
               </div>
             </div>
@@ -137,6 +151,9 @@ include __DIR__ . "/includes/header.php";
             id="working-capital"
             class="products-stage products-stage--reverse"
             data-aos="fade-up"
+            data-modal-img="assets/images/modal-working-capital.jpg"
+            data-modal-accent="gray"
+            data-modal-title="Working<br />Capital<br />Facilities"
           >
             <div class="products-stage__media">
               <div class="reveal__pic products-stage__pic">
@@ -156,6 +173,21 @@ include __DIR__ . "/includes/header.php";
               <a href="#" class="products-stage__btn">
                 Learn More <i class="bi bi-arrow-right-circle"></i>
               </a>
+              <div class="product-modal-full" hidden>
+                <p>
+                  Working Capital Facilities at INMA offer many tailor-made
+                  options suitable for your short-term or long-term needs.
+                  Maintain healthy cash flow and keep your business operating
+                  smoothly with our Working Capital Facilities. This financing
+                  solution provides the funds needed to cover your day-to-day
+                  operational expenses such as inventory purchases, salaries,
+                  supplier payments, and other business requirements. Having
+                  readily available working capital, allows your business to
+                  respond quickly to market opportunities as well as seasonal
+                  demands. It also helps bridge temporary cash flow gaps without
+                  disrupting daily operations.
+                </p>
+              </div>
             </div>
           </article>
 
@@ -164,6 +196,8 @@ include __DIR__ . "/includes/header.php";
             id="bill-discounting"
             class="products-stage products-stage--featured"
             data-aos="fade-up"
+            data-modal-img="assets/images/modal-bill-discounting.jpg"
+            data-modal-accent="red"
           >
             <div class="products-stage__media">
               <div class="reveal__pic products-stage__pic">
@@ -183,6 +217,20 @@ include __DIR__ . "/includes/header.php";
               <a href="#" class="products-stage__btn">
                 Learn More <i class="bi bi-arrow-right-circle"></i>
               </a>
+              <div class="product-modal-full" hidden>
+                <p>
+                  Improve your cash flow by converting outstanding invoices into
+                  immediate working capital. The Bill Discounting facility
+                  allows businesses to access funds before customer payments are
+                  due, reducing the waiting period for receivables. This enables
+                  you to maintain smooth business operations and meet financial
+                  commitments without delay while offering credit periods to
+                  your important and large customers. Faster access to cash
+                  improves your liquidity while supporting business continuity
+                  and growth. It is an efficient financing solution for
+                  companies with regular credit sales.
+                </p>
+              </div>
             </div>
           </article>
 
@@ -191,6 +239,9 @@ include __DIR__ . "/includes/header.php";
             id="murabaha"
             class="products-stage products-stage--reverse products-stage--green"
             data-aos="fade-up"
+            data-modal-img="assets/images/modal-islamic-finance.jpg"
+            data-modal-accent="green"
+            data-modal-title="Murabaha,<br />Islamic<br />Finance"
           >
             <div class="products-stage__media">
               <div class="reveal__pic products-stage__pic">
@@ -210,6 +261,22 @@ include __DIR__ . "/includes/header.php";
               <a href="#" class="products-stage__btn">
                 Learn More <i class="bi bi-arrow-right-circle"></i>
               </a>
+              <div class="product-modal-full" hidden>
+                <p>
+                  Murabaha is our non-conventional financing facility that is
+                  Shari'ah-compliant. This financing solution is designed for
+                  businesses seeking financing in a Shari'ah-compliant manner.
+                  Under this arrangement, the required asset is purchased by
+                  INMA and sold to the customer at a transparent, pre-agreed
+                  profit margin with flexible repayment terms. The financing
+                  structure ensures clarity, fairness, and in compliance with
+                  Sharia compliant principles. It enables businesses to acquire
+                  equipment, machinery, vehicles, and other assets without
+                  conventional interest-based financing. Murabaha offers a
+                  trusted and ethical financing solution that supports
+                  sustainable business growth.
+                </p>
+              </div>
             </div>
           </article>
 
@@ -218,6 +285,8 @@ include __DIR__ . "/includes/header.php";
             id="non-funded"
             class="products-stage products-stage--plain"
             data-aos="fade-up"
+            data-modal-img="assets/images/modal-non-funded.jpg"
+            data-modal-accent="white"
           >
             <div class="products-stage__media">
               <div class="reveal__pic products-stage__pic">
@@ -234,6 +303,9 @@ include __DIR__ . "/includes/header.php";
                 with the help of various guarantees and non-funded facilities of
                 the bank.
               </p>
+              <a href="#" class="products-stage__btn">
+                Learn More <i class="bi bi-arrow-right-circle"></i>
+              </a>
             </div>
           </article>
         </div>
@@ -247,7 +319,11 @@ include __DIR__ . "/includes/header.php";
             <div class="swiper-wrapper">
               <!-- Bank Guarantee -->
               <div class="swiper-slide">
-                <article class="guarantee-card">
+                <article
+                  class="guarantee-card"
+                  data-modal-img="assets/images/modal-bank-guarantee.jpg"
+                  data-modal-accent="red"
+                >
                   <div class="guarantee-card__media">
                     <img
                       src="assets/images/product-sm-bank-gurantee.jpg"
@@ -263,13 +339,31 @@ include __DIR__ . "/includes/header.php";
                     <a href="#" class="guarantee-card__btn">
                       Learn More <i class="bi bi-arrow-right-circle"></i>
                     </a>
+                    <div class="product-modal-full" hidden>
+                      <p>
+                        Enhance your business credibility and strengthen your
+                        contractual commitments with Bank Guarantee facilities
+                        from our banks. Such a guarantee provides assurance to
+                        project owners, suppliers, and business partners that
+                        contractual obligations will be fulfilled as agreed.
+                        This facility helps businesses secure larger contracts,
+                        build confidence with stakeholders, and participate in
+                        larger commercial opportunities. It also minimizes
+                        financial risk for all parties involved.
+                      </p>
+                    </div>
                   </div>
                 </article>
               </div>
 
               <!-- Letter of Credit Facility -->
               <div class="swiper-slide">
-                <article class="guarantee-card">
+                <article
+                  class="guarantee-card"
+                  data-modal-img="assets/images/modal-letter-credit.jpg"
+                  data-modal-accent="green"
+                  data-modal-title="Letter<br />of Credit<br />Facility"
+                >
                   <div class="guarantee-card__media">
                     <img
                       src="assets/images/product-sm-letter-credit.jpg"
@@ -287,13 +381,33 @@ include __DIR__ . "/includes/header.php";
                     <a href="#" class="guarantee-card__btn">
                       Learn More <i class="bi bi-arrow-right-circle"></i>
                     </a>
+                    <div class="product-modal-full" hidden>
+                      <p>
+                        Facilitate domestic and international trade with
+                        confidence through the LC (Letter of Credit) Facility
+                        from our bank. This solution provides secure payment
+                        arrangements between buyers and suppliers, reducing
+                        commercial risks while ensuring smooth business
+                        transactions. It offers reassurance to both parties that
+                        payment and delivery obligations will be fulfilled
+                        according to agreed terms. Whether importing raw
+                        materials or exporting your products, a Letter of Credit
+                        helps build trust and strengthens business
+                        relationships. It is an essential financing tool for
+                        companies engaged in local and global trade.
+                      </p>
+                    </div>
                   </div>
                 </article>
               </div>
 
               <!-- Tender Bonds -->
               <div class="swiper-slide">
-                <article class="guarantee-card">
+                <article
+                  class="guarantee-card"
+                  data-modal-img="assets/images/modal-tender-bonds.jpg"
+                  data-modal-accent="red"
+                >
                   <div class="guarantee-card__media">
                     <img
                       src="assets/images/product-sm-tender-bonds.jpg"
@@ -309,13 +423,32 @@ include __DIR__ . "/includes/header.php";
                     <a href="#" class="guarantee-card__btn">
                       Learn More <i class="bi bi-arrow-right-circle"></i>
                     </a>
+                    <div class="product-modal-full" hidden>
+                      <p>
+                        Tender Bonds help businesses participate confidently in
+                        public and private sector tenders by providing the bid
+                        security required by project owners. This facility
+                        demonstrates your company's financial credibility and
+                        commitment to fulfilling the tender requirements, giving
+                        clients greater confidence in your proposal. By
+                        supporting your tender submissions, Inma (SME
+                        Development Fund) helps position your business to
+                        compete for larger projects and seize new growth
+                        opportunities.
+                      </p>
+                    </div>
                   </div>
                 </article>
               </div>
 
               <!-- Advance Payment Guarantees -->
               <div class="swiper-slide">
-                <article class="guarantee-card">
+                <article
+                  class="guarantee-card"
+                  data-modal-img="assets/images/modal-advance-payment.jpg"
+                  data-modal-accent="green"
+                  data-modal-title="Advance<br />Payment<br />Guarantees"
+                >
                   <div class="guarantee-card__media">
                     <img
                       src="assets/images/product-sm-advance-payment.jpg"
@@ -333,6 +466,22 @@ include __DIR__ . "/includes/header.php";
                     <a href="#" class="guarantee-card__btn">
                       Learn More <i class="bi bi-arrow-right-circle"></i>
                     </a>
+                    <div class="product-modal-full" hidden>
+                      <p>
+                        Provide confidence to project owners while protecting
+                        advance payments made under commercial contracts. The
+                        Advance Payment Guarantee from our banks provides
+                        assurance to your clients that advance funds will be
+                        used appropriately and remain protected throughout the
+                        project lifecycle. This facility helps contractors
+                        secure advance payments needed to mobilize resources,
+                        purchase materials, and begin project execution. It
+                        strengthens trust between contractors and project owners
+                        while supporting smooth project delivery. Advance
+                        Payment Guarantees play an important role in
+                        facilitating successful project implementation.
+                      </p>
+                    </div>
                   </div>
                 </article>
               </div>
@@ -356,6 +505,8 @@ include __DIR__ . "/includes/header.php";
             id="auto-finance"
             class="products-stage products-stage--reverse products-stage--featured"
             data-aos="fade-up"
+            data-modal-img="assets/images/modal-auto-finance.jpg"
+            data-modal-accent="red"
           >
             <div class="products-stage__media">
               <div class="reveal__pic products-stage__pic">
@@ -376,6 +527,22 @@ include __DIR__ . "/includes/header.php";
               <a href="#" class="products-stage__btn">
                 Learn More <i class="bi bi-arrow-right-circle"></i>
               </a>
+              <div class="product-modal-full" hidden>
+                <p>
+                  Whether purchasing a new or pre-owned vehicle, try our Auto
+                  Finance facility. This facility offers affordable financing
+                  with convenient repayment options tailored to your monthly
+                  income. It is suitable for individuals as well as businesses
+                  looking to expand their vehicle fleet. Our financing solutions
+                  make vehicle ownership more accessible and financially
+                  manageable. With flexible financing options and a simple
+                  application process, you can enjoy greater mobility without
+                  placing unnecessary pressure on your finances. Whether for
+                  personal use or business operations, our Auto Finance helps
+                  you get on the road with confidence while preserving your cash
+                  flow.
+                </p>
+              </div>
             </div>
           </article>
 
@@ -384,6 +551,8 @@ include __DIR__ . "/includes/header.php";
             id="consumer-loans"
             class="products-stage products-stage--green"
             data-aos="fade-up"
+            data-modal-img="assets/images/modal-consumer-loans.jpg"
+            data-modal-accent="green"
           >
             <div class="products-stage__media">
               <div class="reveal__pic products-stage__pic">
@@ -403,6 +572,22 @@ include __DIR__ . "/includes/header.php";
               <a href="#" class="products-stage__btn">
                 Learn More <i class="bi bi-arrow-right-circle"></i>
               </a>
+              <div class="product-modal-full" hidden>
+                <p>
+                  Our Consumer Loan facility provides flexible financing options
+                  for a wide range of personal and lifestyle needs. Whether
+                  you're purchasing household appliances, electronic items,
+                  furniture, making home improvements, or addressing other
+                  personal needs, we offer flexible financing with convenient
+                  repayment plans. This facility also allows you to enjoy the
+                  things you need today while spreading your repayments over
+                  manageable tenures with easy installments. Consumer Loan
+                  options are designed to help improve your quality of life
+                  without placing undue strain on your finances. With simple
+                  application processes and flexible terms, achieving your
+                  personal goals becomes easier and more affordable.
+                </p>
+              </div>
             </div>
           </article>
         </div>
@@ -494,54 +679,7 @@ include __DIR__ . "/includes/header.php";
       <!-- /products-apply -->
 
       <!-- CONTACT US -->
-      <section class="contact-design">
-        <div class="contact-design__inner">
-          <h2 class="contact-design__title">Contact Us</h2>
-
-          <div class="contact-design__row">
-            <div class="contact-design__brand" aria-hidden="true">
-              <img src="assets/images/smef-logo.png" alt="" />
-            </div>
-
-            <div class="contact-design__details">
-              <address class="contact-design__address">
-                <strong>Head Office</strong>
-                SME Development Fund<br />
-                PO BOX 119, PC 103<br />
-                Sultanate of Oman<br />
-                Fifth Floor, Block V<br />
-                Panorama Mall, Al Ghubrah<br />
-                Tel: +968 22344000<br />
-                E-mail: info@smefoman.com
-              </address>
-
-              <address class="contact-design__address">
-                <strong>Salalah Branch</strong>
-                Mohammed Shabbir Akhter:<br />
-                90160987 Tel: 23292419
-              </address>
-
-              <address class="contact-design__address">
-                <strong>Sohar Branch</strong>
-                Ali Al Farsi:<br />
-                96096175
-              </address>
-            </div>
-
-            <div
-              class="contact-design__map"
-              aria-label="SME Development Fund map location"
-            >
-              <iframe
-                title="SME Development Fund location map"
-                src="https://www.google.com/maps?q=Panorama%20Mall%20Al%20Ghubrah%20Muscat%20Oman&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
+<?php include __DIR__ . "/includes/contacts.php"; ?>
       <!-- /contact-design -->
     </main>
 
@@ -563,22 +701,36 @@ include __DIR__ . "/includes/header.php";
           data-modal-close
           aria-label="Close"
         >
-          <span class="product-modal__close-icon"><i class="bi bi-x-lg"></i></span>
+          <span class="product-modal__close-icon"
+            ><i class="bi bi-x-lg"></i
+          ></span>
           <span class="product-modal__close-label">Close</span>
         </button>
 
+        <!-- Full-bleed product photo with the Inma mark over the top-right -->
         <div class="product-modal__media">
           <img
             class="product-modal__img"
-            src="assets/images/product-modal-pic.jpg"
+            src="assets/images/modal-lease-finance.jpg"
             alt=""
+          />
+          <img
+            class="product-modal__logo"
+            src="assets/images/smef-logo.svg"
+            alt="SMEF Inma"
           />
         </div>
 
+        <!-- Colour panel with the title + the copy beside it -->
         <div class="product-modal__content">
-          <p class="product-modal__breadcrumb"></p>
-          <h2 class="product-modal__title" id="productModalTitle"></h2>
-          <div class="product-modal__body"></div>
+          <div class="product-modal__aside">
+            <h2 class="product-modal__title" id="productModalTitle"></h2>
+          </div>
+
+          <div class="product-modal__main">
+            <p class="product-modal__breadcrumb"></p>
+            <div class="product-modal__body"></div>
+          </div>
         </div>
       </div>
     </div>

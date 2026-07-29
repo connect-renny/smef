@@ -481,15 +481,20 @@ if (document.querySelector(".guarantees-swiper")) {
 // "Learn More" on any product row / guarantee card opens a modal populated from
 // that product’s image, title and category. A hidden .product-modal-full block
 // inside the article supplies the long copy; otherwise the short blurb is used.
+// data-modal-img / -accent / -title on the article override the defaults.
 (function () {
   var modal = document.getElementById("productModal");
   if (!modal) return;
 
+  var dialog = modal.querySelector(".product-modal__dialog");
   var imgEl = modal.querySelector(".product-modal__img");
   var crumbEl = modal.querySelector(".product-modal__breadcrumb");
   var titleEl = modal.querySelector(".product-modal__title");
   var bodyEl = modal.querySelector(".product-modal__body");
+  var mainEl = modal.querySelector(".product-modal__main");
   var lastTrigger = null;
+
+  var ACCENTS = ["red", "green", "gray", "white"];
 
   function openModal(btn) {
     var article = btn.closest("article");
@@ -514,17 +519,34 @@ if (document.querySelector(".guarantees-swiper")) {
       if (tagged) category = tagged.getAttribute("data-modal-category");
     }
 
-    // Image is a shared placeholder for now (set in the markup); alt tracks title
+    // Per-product artwork; the INMA logo is baked into each modal image
+    var src = article.getAttribute("data-modal-img");
+    if (src) imgEl.src = src;
     imgEl.alt = title ? title.textContent.trim() : "";
+
+    // Colour panel — red / green / gray, per the approved design
+    var accent = article.getAttribute("data-modal-accent") || "red";
+    ACCENTS.forEach(function (name) {
+      dialog.classList.toggle(
+        "product-modal__dialog--" + name,
+        name === accent
+      );
+    });
+
     crumbEl.innerHTML =
-      "Products" + (category ? " &nbsp;|&nbsp; " + category : "") + " &nbsp;|";
-    titleEl.innerHTML = title ? title.innerHTML : "";
+      "Products &nbsp;<span>|</span>&nbsp; " +
+      (category ? category + " &nbsp;<span>|</span>" : "");
+
+    // The panel is narrow, so titles carry their own line breaks
+    var titleOverride = article.getAttribute("data-modal-title");
+    titleEl.innerHTML = titleOverride || (title ? title.innerHTML : "");
+
     bodyEl.innerHTML = full
       ? full.innerHTML
       : text
       ? "<p>" + text.innerHTML + "</p>"
       : "";
-    bodyEl.scrollTop = 0;
+    if (mainEl) mainEl.scrollTop = 0;
 
     lastTrigger = btn;
     modal.classList.add("is-open");

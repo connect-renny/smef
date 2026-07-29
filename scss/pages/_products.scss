@@ -605,10 +605,25 @@
   }
 }
 
+
 // ═══════════════════════════════════════════════════════════════════════════
-// PRODUCT MODAL — image (left) + scrollable content (right)
+// PRODUCT MODAL — full-bleed photo above a colour panel + two-column copy
+// Proportions follow the approved design (1500 × 1300 artboard): the photo is
+// 15:8, the colour panel is 331/1500 of the width and the copy runs in two
+// justified columns beside it.
 // ═══════════════════════════════════════════════════════════════════════════
 .product-modal {
+  // Design metrics, expressed against the 1500px dialog
+  --pm-pad-x: clamp(20px, 4.3vw, 65px);
+  --pm-pad-top: clamp(24px, 2.7vw, 40px);
+  --pm-pad-bottom: clamp(30px, 3.4vw, 50px);
+  --pm-crumb-size: clamp(12px, 1.33vw, 20px);
+  --pm-crumb-gap: clamp(22px, 2.8vw, 42px);
+  --pm-body-size: clamp(14px, 1.6vw, 20px);
+  --pm-media-max: 44vh; // photo never eats more than this much height
+  --pm-accent: var(--color-red); // panel / close-button background
+  --pm-on-accent: var(--white); // title + close icon drawn on that background
+
   position: fixed;
   inset: 0;
   z-index: 100000;
@@ -641,9 +656,9 @@
     position: relative;
     z-index: 1;
     display: flex;
+    flex-direction: column;
     width: min(1500px, 100%);
-    height: 90vh;
-    max-height: 90vh;
+    max-height: 92vh;
     background-color: var(--white);
     overflow: hidden;
     transform: translateY(16px);
@@ -652,51 +667,30 @@
     .product-modal.is-open & {
       transform: translateY(0);
     }
-  }
 
-  // ─── Close button (top-right) ───────────────────────────────────────────────
-  &__close {
-    position: absolute;
-    top: 22px;
-    right: 26px;
-    z-index: 2;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    padding: 0;
-    background: none;
-    border: 0;
-    color: #4a4a4a;
-    cursor: pointer;
-    @include transEase(color, ease);
-
-    &:hover {
-      color: var(--color-red);
+    // Panel colour per product — set from data-modal-accent
+    &--red {
+      --pm-accent: var(--color-red);
+    }
+    &--green {
+      --pm-accent: var(--color-green);
+    }
+    &--gray {
+      --pm-accent: #999;
+    }
+    // Plain white panel — the title has to go dark to stay readable
+    &--white {
+      --pm-accent: var(--white);
+      --pm-on-accent: var(--color-text);
     }
   }
 
-  &__close-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 1px solid currentColor;
-    border-radius: 50%;
-    font-size: 18px;
-  }
-
-  &__close-label {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  // ─── Image half ─────────────────────────────────────────────────────────────
+  // ─── Photo ──────────────────────────────────────────────────────────────────
   &__media {
-    flex: 1 1 55%;
-    min-width: 0;
+    position: relative;
+    flex: 0 0 auto;
+    aspect-ratio: 15 / 8;
+    max-height: var(--pm-media-max);
     overflow: hidden;
   }
 
@@ -707,39 +701,53 @@
     object-position: center;
   }
 
-  // ─── Content half ───────────────────────────────────────────────────────────
-  &__content {
-    flex: 1 1 45%;
-    min-width: 0;
-    min-height: 0; // let __body scroll instead of overflowing (esp. mobile column)
-    display: flex;
-    flex-direction: column;
-    padding: clamp(36px, 3.4vw, 68px) clamp(28px, 2.6vw, 52px)
-      clamp(36px, 3.4vw, 68px) clamp(32px, 3.4vw, 64px);
+  // Inma mark over the top-right corner of the photo
+  &__logo {
+    position: absolute;
+    top: clamp(14px, 1.7vw, 25px);
+    right: clamp(16px, 2vw, 30px);
+    width: clamp(34px, 4.4vw, 66px);
+    height: auto;
+    pointer-events: none;
   }
 
-  &__breadcrumb {
-    color: var(--color-text-muted);
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    margin: 0 0 clamp(18px, 2vw, 30px);
+  // ─── Colour panel + copy ────────────────────────────────────────────────────
+  &__content {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+  }
+
+  // Colour panel carrying the product title
+  &__aside {
+    flex: 0 0 22.07%; // 331 / 1500
+    background-color: var(--pm-accent);
+    // Line the title up with the first line of the copy beside it
+    padding: calc(
+        var(--pm-pad-top) + var(--pm-crumb-size) * 1.4 + var(--pm-crumb-gap)
+      )
+      clamp(14px, 2.3vw, 35px) var(--pm-pad-bottom) clamp(12px, 1.4vw, 22px);
   }
 
   &__title {
-    color: var(--color-red);
+    color: var(--pm-on-accent);
     font-family: var(--heading-font);
     font-weight: var(--fw-medium);
-    font-size: clamp(1.9rem, 2.6vw, 2.75rem);
-    line-height: 1.12;
-    margin: 0 0 clamp(20px, 2vw, 30px);
+    font-size: clamp(20px, 2.7vw, 40px);
+    line-height: 1.2;
+    text-align: right;
+    margin: -0.1em 0 0;
   }
 
-  // Scrollable copy area
-  &__body {
+  // Copy column
+  &__main {
     flex: 1 1 auto;
+    min-width: 0;
     min-height: 0;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
-    padding-right: 18px;
+    padding: var(--pm-pad-top) var(--pm-pad-x) var(--pm-pad-bottom);
 
     // Styled scrollbar
     scrollbar-width: thin;
@@ -750,24 +758,84 @@
     }
     &::-webkit-scrollbar-track {
       background: #ededed;
-      border-radius: 999px;
     }
     &::-webkit-scrollbar-thumb {
       background: #b3b3b3;
       border-radius: 999px;
     }
+  }
+
+  &__breadcrumb {
+    flex: 0 0 auto;
+    color: #666;
+    font-size: var(--pm-crumb-size);
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    margin: 0 0 var(--pm-crumb-gap);
+
+    span {
+      color: var(--color-red); // red pipe separators
+    }
+  }
+
+  // Two justified columns, as drawn
+  &__body {
+    flex: 0 0 auto; // keep natural height so __main scrolls and its bottom
+    // padding survives instead of the copy squashing
+    columns: 2;
+    column-gap: clamp(24px, 3vw, 45px);
 
     p {
-      color: var(--color-text-muted);
-      font-size: var(--fs-md);
-      line-height: 1.8;
+      color: #666;
+      font-size: var(--pm-body-size);
+      line-height: 1.46;
       text-align: justify;
-      margin: 0 0 1.4em;
+      margin: 0 0 1em;
 
       &:last-child {
         margin-bottom: 0;
       }
     }
+  }
+
+  // ─── Close button (top-left, on the accent colour so it reads over the photo)
+  &__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: clamp(7px, 0.8vw, 12px) clamp(8px, 0.9vw, 14px);
+    background-color: var(--pm-accent);
+    border: 0;
+    color: var(--pm-on-accent);
+    cursor: pointer;
+    @include transEase(background-color, ease);
+
+    &:hover {
+      background-color: var(--color-text);
+      color: var(--white);
+    }
+  }
+
+  &__close-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(20px, 1.8vw, 28px);
+    height: clamp(20px, 1.8vw, 28px);
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    font-size: clamp(9px, 0.85vw, 13px);
+  }
+
+  &__close-label {
+    font-size: clamp(7px, 0.6vw, 9px);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 }
 
@@ -776,37 +844,113 @@ body.product-modal-open {
   overflow: hidden;
 }
 
-// ─── Modal responsive — drop the image, content fills the dialog ────────────
-@media (max-width: 860px) {
-  .product-modal__dialog {
-    flex-direction: column;
-    height: 90vh;
+// ═══════════════════════════ MODAL RESPONSIVE ══════════════════════════════
+// Laptops are short rather than narrow, so the photo gives up height first and
+// the copy keeps its two columns for as long as they stay readable.
+
+// ─── Laptop ─────────────────────────────────────────────────────────────────
+@media (max-width: 1280px) {
+  .product-modal {
+    --pm-media-max: 38vh;
+    padding: 16px;
   }
 
-  .product-modal__media {
-    display: none; // hide the pop image on mobile
+  .product-modal__dialog {
+    max-height: 94vh;
+  }
+}
+
+// ─── Small laptop ───────────────────────────────────────────────────────────
+@media (max-width: 1023px) {
+  .product-modal {
+    --pm-media-max: 34vh;
+    --pm-crumb-size: 14px;
+    --pm-body-size: 16px;
+    --pm-pad-bottom: 34px;
+  }
+
+  // Columns get too narrow to read from here down
+  .product-modal__body {
+    columns: 1;
+  }
+
+  .product-modal__aside {
+    flex-basis: 27%;
+  }
+}
+
+// ─── Tablet portrait — title band above the copy ────────────────────────────
+@media (max-width: 767px) {
+  .product-modal {
+    --pm-media-max: 30vh;
+    padding: 14px;
   }
 
   .product-modal__content {
-    flex: 1 1 auto;
-    padding-top: 64px; // clear the close button above the breadcrumb
+    flex-direction: column;
+    overflow-y: auto;
   }
 
-  // Slim the close button to just the icon so it never sits over the breadcrumb
-  .product-modal__close {
-    top: 16px;
-    right: 16px;
+  .product-modal__aside {
+    flex: 0 0 auto;
+    padding: 20px 24px;
   }
 
-  .product-modal__close-label {
-    display: none;
+  .product-modal__title {
+    font-size: 26px;
+    text-align: left;
+    margin: 0;
+
+    br {
+      display: none; // the full-width band wraps the title on its own
+    }
   }
 
-  .product-modal__breadcrumb {
-    padding-right: 44px;
+  .product-modal__main {
+    overflow: visible;
+    padding: 26px 24px 34px;
   }
 
   .product-modal__body p {
     text-align: left;
+    line-height: 1.65;
+  }
+}
+
+// ─── Phone — photo stays but as a shallow banner so the copy leads ──────────
+@media (max-width: 575px) {
+  .product-modal {
+    --pm-body-size: 15px;
+    --pm-crumb-size: 13px;
+    padding: 10px;
+  }
+
+  // Drop the 15:8 crop for a fixed band — the photo becomes a header strip
+  .product-modal__media {
+    aspect-ratio: auto;
+    height: clamp(110px, 30vw, 160px);
+    max-height: none;
+  }
+
+  .product-modal__logo {
+    top: 10px;
+    right: 12px;
+    width: 30px;
+  }
+
+  .product-modal__dialog {
+    max-height: 92vh;
+  }
+
+  .product-modal__aside {
+    padding: 16px 20px;
+  }
+
+  .product-modal__title {
+    font-size: 23px;
+  }
+
+  .product-modal__main {
+    padding: 22px 20px 30px;
   }
 }
