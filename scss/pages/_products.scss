@@ -364,6 +364,17 @@
       text-align: justify;
       max-width: 34ch;
     }
+
+    // The default white button is invisible on this panel — go red
+    .products-stage__btn {
+      border-color: var(--color-red);
+      color: var(--color-red);
+
+      &:hover {
+        background-color: var(--color-red);
+        color: var(--white);
+      }
+    }
   }
 }
 
@@ -678,10 +689,10 @@
     &--gray {
       --pm-accent: #999;
     }
-    // Plain white panel — the title has to go dark to stay readable
+    // Plain white panel — red title, matching the plain row on the page
     &--white {
       --pm-accent: var(--white);
-      --pm-on-accent: var(--color-text);
+      --pm-on-accent: var(--color-red);
     }
   }
 

@@ -7549,6 +7549,14 @@ html {
   text-align: justify;
   max-width: 34ch;
 }
+.products-stage--plain .products-stage__btn {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+.products-stage--plain .products-stage__btn:hover {
+  background-color: var(--color-red);
+  color: var(--white);
+}
 
 @media (max-width: 767px) {
   .products-stage {
@@ -7791,7 +7799,7 @@ html {
 }
 .product-modal__dialog--white {
   --pm-accent: var(--white);
-  --pm-on-accent: var(--color-text);
+  --pm-on-accent: var(--color-red);
 }
 .product-modal__media {
   position: relative;
