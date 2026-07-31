@@ -8,7 +8,18 @@ include __DIR__ . "/includes/header.php";
       <!-- ═══════════════════════════ HERO ═════════════════════════════════════ -->
       <section class="products-hero">
         <div class="products-hero__bg">
-          <img src="assets/images/hero-products.jpg" alt="" />
+          <!-- Poster shows instantly and covers the gap until the video plays -->
+          <video
+            class="products-hero__video"
+            src="assets/videos/hero-products.mp4"
+            poster="assets/images/hero-products-placeholder.jpg"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-hidden="true"
+          ></video>
         </div>
 
         <div class="products-hero__inner">
@@ -252,7 +263,7 @@ include __DIR__ . "/includes/header.php";
               </div>
             </div>
             <div class="products-stage__body">
-              <h3 class="products-stage__title">Murabaha</h3>
+              <h3 class="products-stage__title">Murabaha, <br> Islamic Finance</h3>
               <p class="products-stage__text">
                 A Shari'ah-compliant financing solution that enables your
                 businesses to acquire assets through a transparent financing
@@ -285,8 +296,6 @@ include __DIR__ . "/includes/header.php";
             id="non-funded"
             class="products-stage products-stage--plain"
             data-aos="fade-up"
-            data-modal-img="assets/images/modal-non-funded.jpg"
-            data-modal-accent="white"
           >
             <div class="products-stage__media">
               <div class="reveal__pic products-stage__pic">
@@ -303,9 +312,6 @@ include __DIR__ . "/includes/header.php";
                 with the help of various guarantees and non-funded facilities of
                 the bank.
               </p>
-              <a href="#" class="products-stage__btn">
-                Learn More <i class="bi bi-arrow-right-circle"></i>
-              </a>
             </div>
           </article>
         </div>
@@ -691,6 +697,7 @@ include __DIR__ . "/includes/header.php";
       aria-modal="true"
       aria-labelledby="productModalTitle"
       aria-hidden="true"
+      data-lenis-prevent
     >
       <div class="product-modal__backdrop" data-modal-close></div>
 
@@ -707,29 +714,33 @@ include __DIR__ . "/includes/header.php";
           <span class="product-modal__close-label">Close</span>
         </button>
 
-        <!-- Full-bleed product photo with the Inma mark over the top-right -->
-        <div class="product-modal__media">
-          <img
-            class="product-modal__img"
-            src="assets/images/modal-lease-finance.jpg"
-            alt=""
-          />
-          <img
-            class="product-modal__logo"
-            src="assets/images/smef-logo.svg"
-            alt="SMEF Inma"
-          />
-        </div>
-
-        <!-- Colour panel with the title + the copy beside it -->
-        <div class="product-modal__content">
-          <div class="product-modal__aside">
-            <h2 class="product-modal__title" id="productModalTitle"></h2>
+        <!-- Everything below the close button scrolls, so the photo can run at
+             full size while the dialog still fits the screen -->
+        <div class="product-modal__scroll">
+          <!-- Full-bleed product photo with the Inma mark over the top-right -->
+          <div class="product-modal__media">
+            <img
+              class="product-modal__img"
+              src="assets/images/modal-lease-finance.jpg"
+              alt=""
+            />
+            <img
+              class="product-modal__logo"
+              src="assets/images/modal-product-logo.png"
+              alt="SMEF Inma"
+            />
           </div>
 
-          <div class="product-modal__main">
-            <p class="product-modal__breadcrumb"></p>
-            <div class="product-modal__body"></div>
+          <!-- Colour panel with the title + the copy beside it -->
+          <div class="product-modal__content">
+            <div class="product-modal__aside">
+              <h2 class="product-modal__title" id="productModalTitle"></h2>
+            </div>
+
+            <div class="product-modal__main">
+              <p class="product-modal__breadcrumb"></p>
+              <div class="product-modal__body"></div>
+            </div>
           </div>
         </div>
       </div>

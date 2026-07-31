@@ -93,8 +93,6 @@
       <img src="assets/images/up-icon.svg" alt="Up" />
     </a>
 
-    <!-- jQuery -->
-    <script src="assets/js/jquery.min.js"></script>
     <!-- Bootstrap core JavaScript -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <!-- Swiper slider -->
@@ -106,8 +104,9 @@
     <!-- GSAP (preloader + scroll reveal) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <!-- Custom JS -->
-    <script src="assets/js/main.js"></script>
+    <!-- Custom JS. ?v=<mtime> busts the browser cache on every edit, so script
+         changes show up without a hard reload (same as style.css in head.php) -->
+    <script src="assets/js/main.js?v=<?= @filemtime(__DIR__ . '/../assets/js/main.js') ?: time() ?>"></script>
     <script>
       // AOS animation
       AOS.init({

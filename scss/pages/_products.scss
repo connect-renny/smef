@@ -18,23 +18,27 @@
   height: clamp(376px, 42vw, 550px);
   overflow: hidden;
 
-  // Full-bleed background — grayscale by default, full colour on hover
+  // Full-bleed background — grayscale by default, full colour on hover.
+  // Holds a looping video; its poster covers the frame until playback starts.
   &__bg {
     position: absolute;
     inset: 0;
     z-index: 0;
 
-    img {
+    img,
+    video {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: grayscale(100%); // black & white hero photo
+      filter: grayscale(100%); // black & white hero
       @include transEase(filter, ease);
     }
   }
 
-  &:hover &__bg img {
+  &:hover &__bg img,
+  &:hover &__bg video {
     filter: grayscale(0%);
   }
 
@@ -616,7 +620,6 @@
   }
 }
 
-
 // ═══════════════════════════════════════════════════════════════════════════
 // PRODUCT MODAL — full-bleed photo above a colour panel + two-column copy
 // Proportions follow the approved design (1500 × 1300 artboard): the photo is
@@ -631,16 +634,27 @@
   --pm-crumb-size: clamp(12px, 1.33vw, 20px);
   --pm-crumb-gap: clamp(22px, 2.8vw, 42px);
   --pm-body-size: clamp(14px, 1.6vw, 20px);
-  --pm-media-max: 44vh; // photo never eats more than this much height
+  // Client wants the photo at its full size, so it runs at the drawn 15:8 with
+  // no height cap. The dialog stays inside the screen (max-height on __dialog)
+  // and __scroll takes the overflow. Set this to a vh value to re-cap the photo.
+  --pm-media-max: none;
   --pm-accent: var(--color-red); // panel / close-button background
   --pm-on-accent: var(--white); // title + close icon drawn on that background
 
   position: fixed;
   inset: 0;
   z-index: 100000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  // Grid with `safe center` centres the dialog but flips to top-aligned rather
+  // than clipping it out of reach. Scrolling here is only a fallback for very
+  // short viewports — normally __scroll inside the dialog handles it.
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  align-content: safe center;
+  overflow-y: auto;
+  overscroll-behavior: contain; // don't chain the scroll to the page behind
+  -webkit-overflow-scrolling: touch;
   padding: 20px;
 
   visibility: hidden;
@@ -655,7 +669,7 @@
   }
 
   &__backdrop {
-    position: absolute;
+    position: fixed; // stays put while the overlay scrolls
     inset: 0;
     background-color: rgba(0, 0, 0, 0.9);
     -webkit-backdrop-filter: blur(6px);
@@ -669,9 +683,9 @@
     display: flex;
     flex-direction: column;
     width: min(1500px, 100%);
-    max-height: 92vh;
+    max-height: 92vh; // dialog always fits the screen
     background-color: var(--white);
-    overflow: hidden;
+    overflow: hidden; // the __scroll child does the scrolling
     transform: translateY(16px);
     @include transEase(transform, ease);
 
@@ -696,6 +710,32 @@
     }
   }
 
+  // ─── Scroll area — photo + copy, keeping the close button pinned above it ───
+  &__scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+
+    // Styled scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: #b3b3b3 transparent;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #ededed;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #b3b3b3;
+      border-radius: 999px;
+    }
+  }
+
   // ─── Photo ──────────────────────────────────────────────────────────────────
   &__media {
     position: relative;
@@ -709,7 +749,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: top; // subjects sit high in these shots — crop from below
   }
 
   // Inma mark over the top-right corner of the photo
@@ -724,8 +764,7 @@
 
   // ─── Colour panel + copy ────────────────────────────────────────────────────
   &__content {
-    flex: 1 1 auto;
-    min-height: 0;
+    flex: 0 0 auto; // keep natural height so __scroll scrolls it
     display: flex;
   }
 
@@ -757,10 +796,10 @@
     min-height: 0;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow: visible; // free-height: the overlay scrolls, not this column
     padding: var(--pm-pad-top) var(--pm-pad-x) var(--pm-pad-bottom);
 
-    // Styled scrollbar
+    // Styled scrollbar (only in use if the column is re-capped)
     scrollbar-width: thin;
     scrollbar-color: #b3b3b3 transparent;
 
@@ -862,19 +901,16 @@ body.product-modal-open {
 // ─── Laptop ─────────────────────────────────────────────────────────────────
 @media (max-width: 1280px) {
   .product-modal {
-    --pm-media-max: 38vh;
+    --pm-media-max: none;
     padding: 16px;
   }
 
-  .product-modal__dialog {
-    max-height: 94vh;
-  }
 }
 
 // ─── Small laptop ───────────────────────────────────────────────────────────
 @media (max-width: 1023px) {
   .product-modal {
-    --pm-media-max: 34vh;
+    --pm-media-max: none;
     --pm-crumb-size: 14px;
     --pm-body-size: 16px;
     --pm-pad-bottom: 34px;
@@ -893,13 +929,13 @@ body.product-modal-open {
 // ─── Tablet portrait — title band above the copy ────────────────────────────
 @media (max-width: 767px) {
   .product-modal {
-    --pm-media-max: 30vh;
+    --pm-media-max: none;
     padding: 14px;
   }
 
   .product-modal__content {
     flex-direction: column;
-    overflow-y: auto;
+    overflow: visible; // free-height: the overlay scrolls
   }
 
   .product-modal__aside {
@@ -949,9 +985,6 @@ body.product-modal-open {
     width: 30px;
   }
 
-  .product-modal__dialog {
-    max-height: 92vh;
-  }
 
   .product-modal__aside {
     padding: 16px 20px;

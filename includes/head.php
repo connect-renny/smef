@@ -32,13 +32,17 @@ if (!isset($pageStyles)) {
     <link href="assets/css/bootstrap-icons.min.css" rel="stylesheet" />
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- <link href="assets/css/bootstrap.rtl.css" rel="stylesheet" /> -->
 
     <link href="assets/css/swiper-bundle.css" rel="stylesheet" />
     <link href="assets/css/aos.css" rel="stylesheet" />
 
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <!-- Custom styles for this template.
+         ?v=<mtime> busts the browser cache whenever the stylesheet is rebuilt,
+         so a fresh compile always shows up without a hard reload. -->
+    <link
+      href="assets/css/style.css?v=<?= @filemtime(__DIR__ . '/../assets/css/style.css') ?: time() ?>"
+      rel="stylesheet"
+    />
     <?= $pageStyles ?>
   </head>
   <body>

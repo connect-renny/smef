@@ -7281,7 +7281,9 @@ html {
   inset: 0;
   z-index: 0;
 }
-.products-hero__bg img {
+.products-hero__bg img,
+.products-hero__bg video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -7289,7 +7291,7 @@ html {
   filter: grayscale(100%);
   transition: filter var(--transition-duration) ease;
 }
-.products-hero:hover .products-hero__bg img {
+.products-hero:hover .products-hero__bg img, .products-hero:hover .products-hero__bg video {
   filter: grayscale(0%);
 }
 .products-hero__inner {
@@ -7747,15 +7749,19 @@ html {
   --pm-crumb-size: clamp(12px, 1.33vw, 20px);
   --pm-crumb-gap: clamp(22px, 2.8vw, 42px);
   --pm-body-size: clamp(14px, 1.6vw, 20px);
-  --pm-media-max: 44vh;
+  --pm-media-max: none;
   --pm-accent: var(--color-red);
   --pm-on-accent: var(--white);
   position: fixed;
   inset: 0;
   z-index: 100000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  align-content: safe center;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding: 20px;
   visibility: hidden;
   opacity: 0;
@@ -7766,7 +7772,7 @@ html {
   opacity: 1;
 }
 .product-modal__backdrop {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.9);
   -webkit-backdrop-filter: blur(6px);
@@ -7801,6 +7807,27 @@ html {
   --pm-accent: var(--white);
   --pm-on-accent: var(--color-red);
 }
+.product-modal__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #b3b3b3 transparent;
+}
+.product-modal__scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.product-modal__scroll::-webkit-scrollbar-track {
+  background: #ededed;
+}
+.product-modal__scroll::-webkit-scrollbar-thumb {
+  background: #b3b3b3;
+  border-radius: 999px;
+}
 .product-modal__media {
   position: relative;
   flex: 0 0 auto;
@@ -7812,7 +7839,7 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
 }
 .product-modal__logo {
   position: absolute;
@@ -7823,8 +7850,7 @@ html {
   pointer-events: none;
 }
 .product-modal__content {
-  flex: 1 1 auto;
-  min-height: 0;
+  flex: 0 0 auto;
   display: flex;
 }
 .product-modal__aside {
@@ -7847,7 +7873,7 @@ html {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow: visible;
   padding: var(--pm-pad-top) var(--pm-pad-x) var(--pm-pad-bottom);
   scrollbar-width: thin;
   scrollbar-color: #b3b3b3 transparent;
@@ -7930,16 +7956,13 @@ body.product-modal-open {
 
 @media (max-width: 1280px) {
   .product-modal {
-    --pm-media-max: 38vh;
+    --pm-media-max: none;
     padding: 16px;
-  }
-  .product-modal__dialog {
-    max-height: 94vh;
   }
 }
 @media (max-width: 1023px) {
   .product-modal {
-    --pm-media-max: 34vh;
+    --pm-media-max: none;
     --pm-crumb-size: 14px;
     --pm-body-size: 16px;
     --pm-pad-bottom: 34px;
@@ -7953,12 +7976,12 @@ body.product-modal-open {
 }
 @media (max-width: 767px) {
   .product-modal {
-    --pm-media-max: 30vh;
+    --pm-media-max: none;
     padding: 14px;
   }
   .product-modal__content {
     flex-direction: column;
-    overflow-y: auto;
+    overflow: visible;
   }
   .product-modal__aside {
     flex: 0 0 auto;
@@ -7996,9 +8019,6 @@ body.product-modal-open {
     top: 10px;
     right: 12px;
     width: 30px;
-  }
-  .product-modal__dialog {
-    max-height: 92vh;
   }
   .product-modal__aside {
     padding: 16px 20px;

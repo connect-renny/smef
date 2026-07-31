@@ -491,7 +491,7 @@ if (document.querySelector(".guarantees-swiper")) {
   var crumbEl = modal.querySelector(".product-modal__breadcrumb");
   var titleEl = modal.querySelector(".product-modal__title");
   var bodyEl = modal.querySelector(".product-modal__body");
-  var mainEl = modal.querySelector(".product-modal__main");
+  var scrollEl = modal.querySelector(".product-modal__scroll");
   var lastTrigger = null;
 
   var ACCENTS = ["red", "green", "gray", "white"];
@@ -546,12 +546,16 @@ if (document.querySelector(".guarantees-swiper")) {
       : text
       ? "<p>" + text.innerHTML + "</p>"
       : "";
-    if (mainEl) mainEl.scrollTop = 0;
-
     lastTrigger = btn;
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("product-modal-open");
+
+    // Always open at the top — the dialog otherwise keeps the scroll position
+    // left behind by the last product. .__scroll is the inner scroller; the
+    // overlay only scrolls as a fallback on short viewports, so reset both.
+    if (scrollEl) scrollEl.scrollTop = 0;
+    modal.scrollTop = 0;
     if (typeof lenis !== "undefined" && lenis.stop) lenis.stop();
   }
 
